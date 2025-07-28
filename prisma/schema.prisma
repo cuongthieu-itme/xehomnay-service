@@ -1,0 +1,261 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  password      String?
+  role          String?   @default("user")
+  emailVerified DateTime?
+  status        String    @default("active")
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  userProfile UserProfile?
+  Provider    Provider[]
+  Booking     Booking[]
+  Review      Review[]
+  Payment     Payment[]
+}
+
+model Account {
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([provider, providerAccountId])
+}
+
+model Session {
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model VerificationToken {
+  id      String   @id @default(cuid())
+  email   String
+  token   String
+  expires DateTime
+
+  @@unique([email, token])
+}
+
+model UserProfile {
+  id        String    @id @default(cuid())
+  userId    String    @unique
+  firstName String?
+  lastName  String?
+  avatar    String?
+  phone     String?
+  city      String?
+  state     String?
+  countryId String?
+  regionId  String?
+  gender    String?
+  dob       DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  country   Country?  @relation(fields: [countryId], references: [id])
+  region    Region?   @relation(fields: [regionId], references: [id])
+}
+
+model Provider {
+  id           String    @id @default(cuid())
+  companyName  String
+  businessReg  String
+  contactName  String
+  contactPhone String
+  countryId    String
+  regionId     String
+  city         String
+  street       String
+  longitude    Float?
+  latitude     Float?
+  avatar       String?
+  active       Boolean   @default(true)
+  email        String
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  country      Country   @relation(fields: [countryId], references: [id])
+  region       Region    @relation(fields: [regionId], references: [id])
+  Car          Car[]
+  Booking      Booking[]
+  Review       Review[]
+  User         User?     @relation(fields: [userId], references: [id])
+  userId       String?
+  Payment      Payment[]
+}
+
+model Country {
+  id          String        @id @default(cuid())
+  name        String
+  code        String?
+  longitude   Float?
+  latitude    Float?
+  status      String        @default("active")
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  Region      Region[]
+  UserProfile UserProfile[]
+  Provider    Provider[]
+  Car         Car[]
+}
+
+model Region {
+  id        String   @id @default(cuid())
+  name      String
+  countryId String
+  status    String   @default("active")
+  longitude Float?
+  latitude  Float?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  country     Country       @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  UserProfile UserProfile[]
+  Provider    Provider[]
+  Car         Car[]
+}
+
+model Car {
+  id            String       @id @default(cuid())
+  slug          String       @unique
+  make          String
+  model         String
+  year          Int
+  color         String
+  description   String?
+  fuelType      String
+  bodyType      String
+  transmission  String
+  engineCapaciy String
+  seatsCapacity Int
+  doorsCapacity Int
+  bagsCapacity  Int
+  acAvailable   Boolean
+  acWorking     Boolean
+  minimumRent   Int
+  maximumRent   Int
+  pricePerHour  Int
+  pricePerDay   Int
+  status        String       @default("available")
+  countryId     String
+  regionId      String
+  providerId    String
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  country       Country      @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  region        Region       @relation(fields: [regionId], references: [id], onDelete: Cascade)
+  provider      Provider     @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  booking       Booking[]
+  review        Review[]
+  images        CarImage[]
+  otherFeatures CarFeature[]
+  Payment       Payment[]
+}
+
+model CarImage {
+  id        String   @id @default(cuid())
+  carId     String
+  imageUrl  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
+}
+
+model CarFeature {
+  id        String   @id @default(cuid())
+  carId     String
+  feature   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
+}
+
+model Booking {
+  id         String   @id @default(cuid())
+  userId     String
+  carId      String
+  providerId String
+  pickUpDate DateTime
+  returnDate DateTime
+  totalPrice Int
+  rentalTime String
+  hOrday     String
+  status     String   @default("pending")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  car      Car       @relation(fields: [carId], references: [id], onDelete: Cascade)
+  provider Provider  @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  Payment  Payment[]
+}
+
+model Review {
+  id         String   @id @default(cuid())
+  userId     String
+  providerId String
+  carId      String
+  rate       Float
+  comment    String?
+  likes      Int      @default(0)
+  dislikes   Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  provider Provider @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  car      Car      @relation(fields: [carId], references: [id], onDelete: Cascade)
+}
+
+model Payment {
+  id          String   @id @default(cuid())
+  userId      String
+  providerId  String
+  carId       String
+  bookingId   String
+  paymentId   String
+  paymentType String
+  amount      Int
+  status      String   @default("pending")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  provider Provider @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  car      Car      @relation(fields: [carId], references: [id], onDelete: Cascade)
+  booking  Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+}

@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.nv::before {
+  background-image: url(../../public/images/htop.jpg);
+  content: "";
+  background-size: cover;
+  width: 70%;
+  height: 42px;
+  position: absolute;
+  z-index: 2;
+  background-repeat: no-repeat;
+  top: 0;
+  right: 0;
+}
+/* hero section */
+.indexTop .background_Image {
+  background-image: url(../../public/images/home-bg.jpg);
+  width: 100%;
+  padding-bottom: 40px;
+  margin-bottom: 70px;
+}
+
+.indexTop .background_Image::before {
+  content: "";
+  background-size: cover;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  background-repeat: no-repeat;
+  top: 0;
+  right: 0;
+  opacity: 0.6;
+}
+
+.indexTop .background_Image .max_width {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  gap: 30px;
+}
+
+.indexTop .background_Image .indexTop_Left {
+  color: white;
+}
+
+.indexTop .background_Image .indexTop_Right {
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.indexTop .background_Image .indexTop_Right .carReservation {
+  width: 100%;
+  max-width: 420px;
+  height: fit-content;
+  padding: 20px 20px;
+  background-color: white;
+  border-radius: 25px;
+}
+.indexTop .background_Image .indexTop_Right form {
+  display: grid;
+  /* grid-template-columns: repeat(2, 1fr); */
+  column-gap: 10px;
+  row-gap: 15px;
+}
+
+.custom {
+  grid-column: span 2;
+  background-color: transparent;
+}
+.indexTop .background_Image .indexTop_Right form .buttons {
+  grid-column: span 2;
+  margin-top: 10px;
+  display: flex;
+}
+/* .indexTop .background_Image .indexTop_Right form .btn {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(317deg, #c80b0b 40%, #840f0f 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+} */
+/* end hero */
+
+/* carosul css */
+.react-multi-carousel-dot--active button {
+  background: #cc0505 !important;
+}
+.react-multi-carousel-dot-list {
+  justify-content: left !important;
+}
+.red_color {
+  color: #cc0505;
+}
+
+.red_btn {
+  background: linear-gradient(317deg, #c80b0b 40%, #840f0f 100%);
+}
+
+.price_border {
+  border-top-left-radius: 20px;
+}
+
+/* slick sider car section */
+
+.slick-prev:before,
+.slick-next:before {
+  color: #cc0505 !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #cc0505 !important;
+}
+.slick-dots li button:before {
+  font-size: 12px !important;
+}
+.slick-prev:before,
+.slick-next:before {
+  font-size: 40px !important;
+}
+.slick-next {
+  right: 30px !important;
+  z-index: 1;
+}
+.slick-prev {
+  left: 12px !important;
+  z-index: 1;
+}
+
+.item {
+  height: 600px;
+  display: flex !important;
+  align-items: center;
+  width: unset !important;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.slick-current .item {
+  height: 600px;
+}
+
+.slick-current .full_card {
+  height: 510px;
+  box-shadow: 0px 10px 20px 1px rgba(0, 0, 0, 0.2);
+}
+.slick-current .details_btn {
+  display: block;
+}
+/* end slider car section */
+
+/* about us */
+.indexBottom {
+  position: relative;
+}
+.indexBottom::before {
+  background-color: #e6e6e6;
+  content: "";
+  background-size: cover;
+  width: 100%;
+  opacity: 0.9;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  background-repeat: no-repeat;
+  top: 0;
+  right: 0;
+}
+.indexBottom .max_width_about {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  width: 100%;
+  padding: 0 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.indexBottom .about_bg {
+  background-image: url(../../public/images/map.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 100%;
+}
+
+.indexBottom::after {
+  background-image: url("../../public/images/ab_car.png");
+  content: "";
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  background-repeat: no-repeat;
+  top: 0;
+  left: 50%;
+}
+@media screen and (max-width: 768px) {
+  .indexTop .background_Image .max_width {
+    grid-template-columns: 100%;
+  }
+  .react-multi-carousel-dot-list {
+    justify-content: center !important;
+  }
+  .react-datepicker__close-icon {
+    right: 15px !important;
+  }
+  .react-datepicker-popper {
+    left: 30px !important;
+  }
+  .indexBottom .max_width_about {
+    grid-template-columns: 100%;
+  }
+  .indexBottom .max_width_about p {
+    text-align: justify;
+  }
+
+  .indexBottom::after {
+    display: none;
+  }
+}

@@ -1,0 +1,30 @@
+.statCard {
+  min-width: 150px;
+  padding: var(--mantine-spacing-xs);
+  padding-top: var(--mantine-spacing-xl);
+  min-height: 8.75rem;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--mantine-shadow-xs);
+  border-radius: var(--mantine-radius-md);
+}
+
+.title {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: var(--mantine-spacing-lg);
+}
+
+.label {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--mantine-color-gray-6);
+  line-height: 1.2;
+}
+
+.value {
+  color: var(--mantine-color-gray-6);
+}
