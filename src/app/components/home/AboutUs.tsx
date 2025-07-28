@@ -11,8 +11,8 @@ const AboutUs = () => {
             <div>
               <h2 className="mt-20 mb-7 font-bold text-4xl">About Us</h2>
               <p className="text-xl">
-                Enjoy Car Rental Enjoy Car Rental offers you a safe and reliable
-                car rental service with and without a driver. We have been
+                Enjoy Xe Hôm Nay Enjoy Xe Hôm Nay offers you a safe and reliable
+                Xe Hôm Nay service with and without a driver. We have been
                 operating in the territory of Montenegro for 5 years, with more
                 than 3000 satisfied clients. Enjoy Rent a Car offers you
                 services, entrusted to a very experienced and professional staff

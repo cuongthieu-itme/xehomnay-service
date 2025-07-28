@@ -30,19 +30,19 @@ export default function Navbar() {
                 <Link href="/" className="flex items-center space-x-2">
                   <MapPin size={24} className="text-red-500" />{" "}
                   <span className="text-white font-medium text-base">
-                    Mirpur, Dhaka, Bangladesh
+                    10/253 Nguyễn Khang, Yên Hòa, Hà Nội
                   </span>
                 </Link>
                 <Link href="/" className="flex items-center space-x-2">
                   <Mail size={24} className="text-red-500" />{" "}
                   <span className="text-white font-medium text-base">
-                    info@enjoycarrental.com
+                    thuexe@todaytravel.vn
                   </span>
                 </Link>
                 <Link href="/" className="flex items-center space-x-2">
                   <PhoneCall size={24} className="text-red-500" />{" "}
                   <span className="text-white font-medium text-base">
-                    +8801747706163
+                    085.234.2525
                   </span>
                 </Link>
               </div>

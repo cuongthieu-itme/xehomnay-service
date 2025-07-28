@@ -21,7 +21,7 @@ const Logo = ({ className }: LogoProps) => {
         className="mr-1 w-14 h-14"
         src="/images/mini-car.gif"
       />
-      <span className="text-2xl">Car Rental</span>
+      <span className="text-2xl">Xe Hôm Nay</span>
     </Link>
   );
 };

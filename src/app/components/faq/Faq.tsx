@@ -6,24 +6,24 @@ export default function FaqPage() {
       <Container>
         <div className="pb-2">
           <h2 className="mt-16 pb-2 mb-3 border-b border-b-red-600 text-3xl font-bold">
-            Faq Car Rental
+            Faq Xe Hôm Nay
           </h2>
         </div>
         <div className="pb-10 pt-2">
           <div>
             <p className="pt-2 text-xl">
-              Most users, who encounter the services of car rental agencies for
+              Most users, who encounter the services of Xe Hôm Nay agencies for
               the first time, have questions and concerns related to their
-              services, but also the vehicle itself. Also, each car rental
+              services, but also the vehicle itself. Also, each Xe Hôm Nay
               agency is specific and may have different business segments. That
               is why we are here to answer the most frequently asked questions
-              addressed to car rental agencies.
+              addressed to Xe Hôm Nay agencies.
             </p>
           </div>
         </div>
         <div className="pt-2 pb-10">
           <h3 className="text-2xl text-red-700 font-semibold">
-            1. What does the car rental agreement contain?
+            1. What does the Xe Hôm Nay agreement contain?
           </h3>
           <p className="pt-3 text-base">
             When taking over the vehicle, a lease agreement must be signed,
@@ -35,7 +35,7 @@ export default function FaqPage() {
             lease.
           </p>
           <h3 className="text-2xl text-red-700 font-semibold">
-            1. What does the car rental agreement contain?
+            1. What does the Xe Hôm Nay agreement contain?
           </h3>
           <p className="pt-3 text-base">
             When taking over the vehicle, a lease agreement must be signed,
@@ -47,7 +47,7 @@ export default function FaqPage() {
             lease.
           </p>
           <h3 className="text-2xl text-red-700 font-semibold">
-            1. What does the car rental agreement contain?
+            1. What does the Xe Hôm Nay agreement contain?
           </h3>
           <p className="pt-3 text-base">
             When taking over the vehicle, a lease agreement must be signed,
@@ -59,7 +59,7 @@ export default function FaqPage() {
             lease.
           </p>
           <h3 className="text-2xl text-red-700 font-semibold">
-            1. What does the car rental agreement contain?
+            1. What does the Xe Hôm Nay agreement contain?
           </h3>
           <p className="pt-3 text-base">
             When taking over the vehicle, a lease agreement must be signed,
@@ -71,7 +71,7 @@ export default function FaqPage() {
             lease.
           </p>
           <h3 className="text-2xl text-red-700 font-semibold">
-            1. What does the car rental agreement contain?
+            1. What does the Xe Hôm Nay agreement contain?
           </h3>
           <p className="pt-3 text-base">
             When taking over the vehicle, a lease agreement must be signed,
@@ -83,7 +83,7 @@ export default function FaqPage() {
             lease.
           </p>
           <h3 className="text-2xl text-red-700 font-semibold">
-            1. What does the car rental agreement contain?
+            1. What does the Xe Hôm Nay agreement contain?
           </h3>
           <p className="pt-3 text-base">
             When taking over the vehicle, a lease agreement must be signed,

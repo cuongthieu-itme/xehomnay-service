@@ -25,7 +25,7 @@ export default function ContactPage() {
       </Container>
       <div className="pt-2 pb-2">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.345480383908!2d90.36326507402873!3d23.806310886630072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c0d7668f38db%3A0x6cb6824a39fe443f!2sMirpur%20Stadium!5e0!3m2!1sen!2sbd!4v1725441388577!5m2!1sen!2sbd"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.263470247761!2d105.79514427613756!3d21.022141380625445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab5b11165781%3A0x728544fffce35ed6!2zTmfDtSAyNTMgxJAuIE5ndXnhu4VuIEtoYW5nLCBZw6puIEhvw6AsIEPhuqd1IEdp4bqleSwgSMOgIE7hu5lpLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1753719025024!5m2!1sen!2s"
           width="100%"
           height="450"
           style={{

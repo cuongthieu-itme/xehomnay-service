@@ -16,15 +16,15 @@ export default function AboutPage() {
         <div className="pb-10 pt-3">
           <div>
             <p className="pt-5 text-xl">
-              Enjoy Car Rental Enjoy Car Rental offers you a safe and reliable
-              car rental service with and without a driver. We have been
+              Enjoy Xe Hôm Nay Enjoy Xe Hôm Nay offers you a safe and reliable
+              Xe Hôm Nay service with and without a driver. We have been
               operating in the territory of Montenegro for 5 years, with more
               than 3000 satisfied clients. Enjoy Rent a Car offers you services,
               entrusted to a very experienced and professional staff that is
               available 24 hours a day.
             </p>
             <p className="pt-5 text-xl">
-              We also offer car rental services from the lowest category to
+              We also offer Xe Hôm Nay services from the lowest category to
               premium class. All vehicles are air conditioned, equipped with the
               highest level of equipment, and at the special request of clients
               we provide GPS system, WI-FI devices and much more. Enjoy Rent a
@@ -50,7 +50,7 @@ export default function AboutPage() {
                   listStyleType: "circle",
                 }}
               >
-                Direct car rental in Montenegro
+                Direct Xe Hôm Nay in Montenegro
               </li>
             </ul>
           </div>
@@ -143,7 +143,7 @@ export default function AboutPage() {
               <div className="flex gap-3 pt-7">
                 <CircleCheckBig color="red" />
                 <p className="text-base text-white">
-                  Only persons specified in the Car Rental Agreement may drive
+                  Only persons specified in the Xe Hôm Nay Agreement may drive
                   the rented car
                 </p>
               </div>

@@ -20,7 +20,7 @@ export default function Footer() {
           <div className={styles.footer_left}>
             <Logo />
             <p className="mt-4 text-justify">
-              Enjoy Rent a Car offers you a safe and reliable car rental service
+              Enjoy Rent a Car offers you a safe and reliable Xe Hôm Nay service
               with and without a driver. We have been operating in the territory
               of Montenegro for 5 years, with more than 3000 satisfied clients.
             </p>
@@ -36,21 +36,21 @@ export default function Footer() {
               <div className={styles.info}>
                 <Link href="" className="text-white flex gap-1">
                   <MapPin size={24} className="text-red-500" />
-                  Mirpur, Dhaka, Bangladesh
+                  10/253 Nguyễn Khang, Yên Hòa, Hà Nội
                 </Link>
                 <Link
                   href={`mailto:admin@admin.com`}
                   className="text-white flex gap-1"
                 >
                   <MailOpenIcon size={24} className="text-red-500" />
-                  info@enjoycarrental.com
+                  thuexe@todaytravel.vn
                 </Link>
                 <Link
-                  href={`tel:+8801747706163`}
+                  href={`tel:085.234.2525`}
                   className="text-white flex gap-1"
                 >
                   <PhoneCall size={24} className="text-red-500" />
-                  +8801747706163
+                  085.234.2525
                 </Link>
               </div>
             </div>
