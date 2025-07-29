@@ -38,6 +38,8 @@ export const getAllProvider = async () => {
         userId: true,
         city: true,
         street: true,
+        createdAt: true,
+        updatedAt: true,
         country: {
           select: {
             name: true,
@@ -48,10 +50,20 @@ export const getAllProvider = async () => {
             name: true,
           },
         },
-        Car: {
+        User: {
           select: {
             id: true,
+            name: true,
+            email: true,
+            role: true,
             status: true,
+          },
+        },
+        _count: {
+          select: {
+            Car: true,
+            Booking: true,
+            Review: true,
           },
         },
       },
@@ -103,6 +115,62 @@ export const updateStatus = async (
   } catch (error) {
     console.error('Error updating status:', error)
     return { error: 'Failed to update status', statusCode: 500 }
+  }
+}
+
+// get provider by id
+export const getProviderById = async (id: string) => {
+  try {
+    const provider = await prisma.provider.findUnique({
+      where: { id: id },
+      select: {
+        id: true,
+        companyName: true,
+        contactName: true,
+        contactPhone: true,
+        email: true,
+        businessReg: true,
+        active: true,
+        city: true,
+        street: true,
+        longitude: true,
+        latitude: true,
+        createdAt: true,
+        updatedAt: true,
+        country: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+        region: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+        User: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            role: true,
+            status: true,
+          },
+        },
+        _count: {
+          select: {
+            Car: true,
+            Booking: true,
+            Review: true,
+          },
+        },
+      },
+    })
+    return provider
+  } catch (error) {
+    console.error('Error in getProviderById:', error)
+    return { error: 'Failed to get provider details' }
   }
 }
 

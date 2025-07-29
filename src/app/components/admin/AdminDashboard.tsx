@@ -48,7 +48,7 @@ const data = [
   {
     icon: <IconUsers size="1rem" />,
     color: "violet",
-    label: "All Providers",
+    label: "Provider Management",
     endpoint: "/dashboard/all-provider",
   },
   {

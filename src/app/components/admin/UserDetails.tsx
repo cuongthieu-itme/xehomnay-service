@@ -170,24 +170,39 @@ export default function UserDetails({
         {user.Provider && user.Provider.length > 0 && (
           <Card withBorder p="md">
             <Text size="lg" fw={600} mb="md">
-              Provider Information
+              Provider Accounts ({user.Provider.length})
             </Text>
             {user.Provider.map((provider: any, index: number) => (
-              <div key={provider.id}>
-                <Group justify="space-between">
-                  <Text fw={500}>{provider.companyName}</Text>
-                  <Badge color={provider.active ? 'green' : 'red'} variant="light">
+              <Card key={provider.id} withBorder p="sm" mb="sm">
+                <Group justify="space-between" mb="xs">
+                  <div>
+                    <Text fw={500} size="sm">{provider.companyName}</Text>
+                    <Text size="xs" c="dimmed">
+                      {provider.contactPhone} • {provider.email}
+                    </Text>
+                  </div>
+                  <Badge color={provider.active ? 'green' : 'red'} variant="light" size="sm">
                     {provider.active ? 'Active' : 'Inactive'}
                   </Badge>
                 </Group>
-                <Text size="sm" c="dimmed">
-                  {provider.contactPhone} • {provider.email}
-                </Text>
-                <Text size="sm" c="dimmed">
+                <Group gap="xs" mb="xs">
+                  <Badge size="xs" color="blue">
+                    {provider._count?.Car || 0} Cars
+                  </Badge>
+                  <Badge size="xs" color="green">
+                    {provider._count?.Booking || 0} Bookings
+                  </Badge>
+                  <Badge size="xs" color="orange">
+                    {provider._count?.Review || 0} Reviews
+                  </Badge>
+                </Group>
+                <Text size="xs" c="dimmed">
                   Business Reg: {provider.businessReg}
                 </Text>
-                {index < user.Provider.length - 1 && <Divider my="sm" />}
-              </div>
+                <Text size="xs" c="dimmed">
+                  Location: {provider.city}, {provider.region?.name}, {provider.country?.name}
+                </Text>
+              </Card>
             ))}
           </Card>
         )}

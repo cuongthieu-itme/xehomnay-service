@@ -2,6 +2,7 @@ import { getAdminDetails, getAllProvider } from "@/actions/admin";
 import { authOptions } from "@/app/auth";
 import AdminDashboard from "@/app/components/admin/AdminDashboard";
 import ProviderList from "@/app/components/admin/ProviderList";
+import ProviderStats from "@/app/components/admin/ProviderStats";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
@@ -21,6 +22,7 @@ export default async function page() {
   const allProviders = await getAllProvider();
   return (
     <AdminDashboard adminDetails={admin} user={user}>
+      <ProviderStats providers={allProviders} />
       <ProviderList allProviders={allProviders} />
     </AdminDashboard>
   );
