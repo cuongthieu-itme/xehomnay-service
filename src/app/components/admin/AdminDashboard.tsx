@@ -63,6 +63,12 @@ const data = [
     label: "Region Management",
     endpoint: "/dashboard/region-management",
   },
+  {
+    icon: <IconUsers size="1rem" />,
+    color: "indigo",
+    label: "User Management",
+    endpoint: "/dashboard/user-management",
+  },
 
   // {
   //   icon: <IconMessage size="1rem" />,

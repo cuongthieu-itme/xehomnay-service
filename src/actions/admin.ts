@@ -524,3 +524,198 @@ export const deleteRegion = async (id: string) => {
     return { error: 'Failed to delete region' }
   }
 }
+
+// get all users list from database
+export const getAllUsers = async () => {
+  try {
+    const users = await prisma.user.findMany({
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+        status: true,
+        emailVerified: true,
+        image: true,
+        createdAt: true,
+        updatedAt: true,
+        _count: {
+          select: {
+            Booking: true,
+            Review: true,
+            Provider: true,
+          },
+        },
+      },
+      orderBy: { createdAt: 'desc' },
+    })
+    return users
+  } catch (error) {
+    return { error: 'Something went wrong' }
+  }
+}
+
+// get user by id
+export const getUserById = async (id: string) => {
+  try {
+    const user = await prisma.user.findUnique({
+      where: { id: id },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+        status: true,
+        emailVerified: true,
+        image: true,
+        createdAt: true,
+        updatedAt: true,
+      },
+    })
+
+    return user
+  } catch (error) {
+    console.error('Error in getUserById:', error)
+    return { error: 'Failed to get user details' }
+  }
+}
+
+// get user details for admin dashboard
+export const getUserDetailsById = async (id: string) => {
+  try {
+    const user = await prisma.user.findUnique({
+      where: { id: id },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+        status: true,
+        emailVerified: true,
+        image: true,
+        createdAt: true,
+        updatedAt: true,
+        userProfile: {
+          select: {
+            id: true,
+            phone: true,
+            firstName: true,
+            lastName: true,
+            city: true,
+            state: true,
+            gender: true,
+            dob: true,
+          },
+        },
+        Booking: {
+          select: {
+            id: true,
+            status: true,
+            createdAt: true,
+          },
+        },
+        Review: {
+          select: {
+            id: true,
+            rate: true,
+            comment: true,
+            createdAt: true,
+          },
+        },
+        Provider: {
+          select: {
+            id: true,
+            companyName: true,
+            contactPhone: true,
+            email: true,
+            businessReg: true,
+            active: true,
+          },
+        },
+      },
+    })
+
+    return user
+  } catch (error) {
+    console.error('Error in getUserDetailsById:', error)
+    return { error: 'Failed to get user details' }
+  }
+}
+
+// update user status
+export const updateUserStatus = async (id: string, status: string) => {
+  try {
+    // Check if the user has any pending bookings
+    const checkBooking = await prisma.booking.findFirst({
+      where: { userId: id, status: { in: ['pending', 'confirmed'] } },
+    })
+    if (checkBooking) {
+      return {
+        error: 'User has pending or confirmed bookings',
+        statusCode: 400,
+      }
+    }
+
+    await prisma.user.update({
+      where: { id: id },
+      data: { status: status },
+    })
+    return { status: true, message: 'User status updated successfully' }
+  } catch (error) {
+    return { error: 'Failed to update user status' }
+  }
+}
+
+// update user role
+export const updateUserRole = async (id: string, role: string) => {
+  try {
+    // Prevent changing admin role
+    const currentUser = await prisma.user.findUnique({
+      where: { id: id },
+      select: { role: true },
+    })
+
+    if (currentUser?.role === 'admin') {
+      return { error: 'Cannot change admin role', statusCode: 400 }
+    }
+
+    await prisma.user.update({
+      where: { id: id },
+      data: { role: role },
+    })
+    return { status: true, message: 'User role updated successfully' }
+  } catch (error) {
+    return { error: 'Failed to update user role' }
+  }
+}
+
+// delete user from database by id
+export const deleteUser = async (id: string) => {
+  try {
+    // Check if the user has any pending bookings
+    const checkBooking = await prisma.booking.findFirst({
+      where: { userId: id, status: { in: ['pending', 'confirmed'] } },
+    })
+    if (checkBooking) {
+      return {
+        error: 'User has pending or confirmed bookings',
+        statusCode: 400,
+      }
+    }
+
+    // Check if user is admin
+    const user = await prisma.user.findUnique({
+      where: { id: id },
+      select: { role: true },
+    })
+
+    if (user?.role === 'admin') {
+      return { error: 'Cannot delete admin user', statusCode: 400 }
+    }
+
+    await prisma.user.delete({ where: { id: id } })
+    return { status: true, message: 'User deleted successfully' }
+  } catch (error) {
+    return { error: 'Failed to delete user' }
+  }
+}
