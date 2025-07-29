@@ -17,6 +17,7 @@ import {
   IconSettings,
   IconUser,
   IconUsers,
+  IconCalendar,
 } from "@tabler/icons-react";
 import { Map } from "lucide-react";
 import { signOut } from "next-auth/react";
@@ -68,6 +69,12 @@ const data = [
     color: "indigo",
     label: "User Management",
     endpoint: "/dashboard/user-management",
+  },
+  {
+    icon: <IconCalendar size="1rem" />,
+    color: "orange",
+    label: "Booking Management",
+    endpoint: "/dashboard/booking-management",
   },
 
   // {

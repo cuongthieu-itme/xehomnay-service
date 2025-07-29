@@ -787,3 +787,168 @@ export const deleteUser = async (id: string) => {
     return { error: 'Failed to delete user' }
   }
 }
+
+// get all bookings for admin dashboard
+export const getAllBookings = async () => {
+  try {
+    const bookings = await prisma.booking.findMany({
+      select: {
+        id: true,
+        pickUpDate: true,
+        returnDate: true,
+        totalPrice: true,
+        rentalTime: true,
+        hOrday: true,
+        status: true,
+        createdAt: true,
+        updatedAt: true,
+        user: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            image: true,
+          },
+        },
+        car: {
+          select: {
+            id: true,
+            make: true,
+            model: true,
+            year: true,
+            images: true,
+          },
+        },
+        provider: {
+          select: {
+            id: true,
+            companyName: true,
+            contactName: true,
+            contactPhone: true,
+          },
+        },
+        Payment: {
+          select: {
+            id: true,
+            paymentType: true,
+            amount: true,
+            status: true,
+          },
+        },
+      },
+      orderBy: { createdAt: 'desc' },
+    })
+    return bookings
+  } catch (error) {
+    return { error: 'Something went wrong' }
+  }
+}
+
+// get booking details by id
+export const getBookingDetailsById = async (id: string) => {
+  try {
+    const booking = await prisma.booking.findUnique({
+      where: { id: id },
+      select: {
+        id: true,
+        pickUpDate: true,
+        returnDate: true,
+        totalPrice: true,
+        rentalTime: true,
+        hOrday: true,
+        status: true,
+        createdAt: true,
+        updatedAt: true,
+        user: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            image: true,
+            userProfile: {
+              select: {
+                phone: true,
+                firstName: true,
+                lastName: true,
+                city: true,
+                state: true,
+              },
+            },
+          },
+        },
+        car: {
+          select: {
+            id: true,
+            make: true,
+            model: true,
+            year: true,
+            color: true,
+            fuelType: true,
+            transmission: true,
+            images: true,
+            pricePerHour: true,
+            pricePerDay: true,
+          },
+        },
+        provider: {
+          select: {
+            id: true,
+            companyName: true,
+            contactName: true,
+            contactPhone: true,
+            email: true,
+            city: true,
+            street: true,
+          },
+        },
+        Payment: {
+          select: {
+            id: true,
+            paymentId: true,
+            paymentType: true,
+            amount: true,
+            status: true,
+            createdAt: true,
+          },
+        },
+      },
+    })
+    return booking
+  } catch (error) {
+    console.error('Error in getBookingDetailsById:', error)
+    return { error: 'Failed to get booking details' }
+  }
+}
+
+// update booking status
+export const updateBookingStatus = async (id: string, status: string) => {
+  try {
+    // Validate status
+    const validStatuses = ['pending', 'approved', 'rejected']
+    if (!validStatuses.includes(status)) {
+      return { error: 'Invalid booking status' }
+    }
+
+    const booking = await prisma.booking.update({
+      where: { id: id },
+      data: { status: status },
+    })
+    return { booking, message: 'Booking status updated successfully' }
+  } catch (error) {
+    console.error('Error updating booking status:', error)
+    return { error: 'Failed to update booking status' }
+  }
+}
+
+// delete booking
+export const deleteBooking = async (id: string) => {
+  try {
+    await prisma.booking.delete({
+      where: { id: id },
+    })
+    return { message: 'Booking deleted successfully' }
+  } catch (error) {
+    console.error('Error deleting booking:', error)
+    return { error: 'Failed to delete booking' }
+  }
+}
