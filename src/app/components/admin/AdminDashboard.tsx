@@ -54,8 +54,14 @@ const data = [
   {
     icon: <Map size="1rem" />,
     color: "purple",
-    label: "Country",
-    endpoint: "/dashboard/all-country",
+    label: "Country Management",
+    endpoint: "/dashboard/country-management",
+  },
+  {
+    icon: <Map size="1rem" />,
+    color: "teal",
+    label: "Region Management",
+    endpoint: "/dashboard/region-management",
   },
 
   // {

@@ -1,13 +1,12 @@
-import { getAdminDetails, getAllCountry, getAllRegion } from "@/actions/admin";
+import { getAdminDetails, getAllCountry } from "@/actions/admin";
 import { authOptions } from "@/app/auth";
 import AdminDashboard from "@/app/components/admin/AdminDashboard";
 import CountryList from "@/app/components/admin/CountryList";
-import RegionList from "@/app/components/admin/RegionList";
-import { Space } from "@mantine/core";
+import CountryStats from "@/app/components/admin/CountryStats";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
-export default async function page() {
+export default async function CountryManagementPage() {
   const getSession = await getServerSession(authOptions);
   const user = getSession?.user as {
     id: string;
@@ -16,17 +15,18 @@ export default async function page() {
     image?: string | null;
     role: string;
   };
+
   if (!getSession || user?.role !== "admin") {
     return redirect("/login");
   }
+
   const admin = await getAdminDetails(user.id);
   const countries = await getAllCountry();
-  const regions = countries && countries.length > 0 ? await getAllRegion(countries[0].id) : [];
+
   return (
     <AdminDashboard adminDetails={admin} user={user}>
+      <CountryStats countries={countries} />
       <CountryList countries={countries} />
-      <Space h="lg" />
-      <RegionList regions={regions} />
     </AdminDashboard>
   );
 }
