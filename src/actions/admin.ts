@@ -952,3 +952,148 @@ export const deleteBooking = async (id: string) => {
     return { error: 'Failed to delete booking' }
   }
 }
+
+// get all reviews for admin dashboard
+export const getAllReviews = async () => {
+  try {
+    const reviews = await prisma.review.findMany({
+      select: {
+        id: true,
+        rate: true,
+        comment: true,
+        likes: true,
+        dislikes: true,
+        createdAt: true,
+        updatedAt: true,
+        user: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            image: true,
+          },
+        },
+        car: {
+          select: {
+            id: true,
+            make: true,
+            model: true,
+            year: true,
+            images: true,
+          },
+        },
+        provider: {
+          select: {
+            id: true,
+            companyName: true,
+            contactName: true,
+            contactPhone: true,
+          },
+        },
+      },
+      orderBy: { createdAt: 'desc' },
+    })
+    return reviews
+  } catch (error) {
+    return { error: 'Something went wrong' }
+  }
+}
+
+// get review details by id
+export const getReviewDetailsById = async (id: string) => {
+  try {
+    const review = await prisma.review.findUnique({
+      where: { id: id },
+      select: {
+        id: true,
+        rate: true,
+        comment: true,
+        likes: true,
+        dislikes: true,
+        createdAt: true,
+        updatedAt: true,
+        user: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            image: true,
+            userProfile: {
+              select: {
+                phone: true,
+                firstName: true,
+                lastName: true,
+                city: true,
+                state: true,
+              },
+            },
+          },
+        },
+        car: {
+          select: {
+            id: true,
+            make: true,
+            model: true,
+            year: true,
+            color: true,
+            fuelType: true,
+            transmission: true,
+            images: true,
+            pricePerHour: true,
+            pricePerDay: true,
+          },
+        },
+        provider: {
+          select: {
+            id: true,
+            companyName: true,
+            contactName: true,
+            contactPhone: true,
+            email: true,
+            city: true,
+            street: true,
+          },
+        },
+      },
+    })
+    return review
+  } catch (error) {
+    console.error('Error in getReviewDetailsById:', error)
+    return { error: 'Failed to get review details' }
+  }
+}
+
+// update review
+export const updateReview = async (id: string, data: {
+  rate?: number;
+  comment?: string;
+}) => {
+  try {
+    // Validate rate
+    if (data.rate && (data.rate < 1 || data.rate > 5)) {
+      return { error: 'Rate must be between 1 and 5' }
+    }
+
+    const review = await prisma.review.update({
+      where: { id: id },
+      data: data,
+    })
+    return { review, message: 'Review updated successfully' }
+  } catch (error) {
+    console.error('Error updating review:', error)
+    return { error: 'Failed to update review' }
+  }
+}
+
+// delete review
+export const deleteReview = async (id: string) => {
+  try {
+    await prisma.review.delete({
+      where: { id: id },
+    })
+    return { message: 'Review deleted successfully' }
+  } catch (error) {
+    console.error('Error deleting review:', error)
+    return { error: 'Failed to delete review' }
+  }
+}

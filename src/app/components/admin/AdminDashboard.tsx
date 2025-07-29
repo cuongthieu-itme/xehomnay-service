@@ -18,6 +18,7 @@ import {
   IconUser,
   IconUsers,
   IconCalendar,
+  IconStar,
 } from "@tabler/icons-react";
 import { Map } from "lucide-react";
 import { signOut } from "next-auth/react";
@@ -76,25 +77,12 @@ const data = [
     label: "Booking Management",
     endpoint: "/dashboard/booking-management",
   },
-
-  // {
-  //   icon: <IconMessage size="1rem" />,
-  //   color: "orange",
-  //   label: "Pages",
-  //   endpoint: "/dashboard/pages-list",
-  // },
-  // {
-  //   icon: <IconMessage size="1rem" />,
-  //   color: "blue",
-  //   label: "Blog",
-  //   endpoint: "/dashboard/blog-list",
-  // },
-  // {
-  //   icon: <IconSettings size="1rem" />,
-  //   color: "cyan",
-  //   label: "Website Settings",
-  //   endpoint: "/dashboard/website-settings",
-  // },
+  {
+    icon: <IconStar size="1rem" />,
+    color: "yellow",
+    label: "Review Management",
+    endpoint: "/dashboard/review-management",
+  },
 ];
 export default function AdminDashboard({
   children,
