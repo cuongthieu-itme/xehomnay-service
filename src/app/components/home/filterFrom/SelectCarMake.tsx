@@ -29,7 +29,7 @@ export function SelectCarMake({
       width="100%"
       className="custom"
       label={label || ""}
-      placeholder="Select car make"
+      placeholder="Hãng xe"
       data={carMakes.map((make) => ({ label: make.label, value: make.value }))}
       value={value}
       onChange={
@@ -37,7 +37,7 @@ export function SelectCarMake({
       }
       searchable
       maxDropdownHeight={280}
-      nothingFoundMessage="Nothing found"
+      nothingFoundMessage="Không tìm thấy"
       filter={optionsFilter}
       required={required}
     />

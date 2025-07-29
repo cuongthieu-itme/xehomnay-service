@@ -20,25 +20,25 @@ const statuses: {
   icon: ReactNode;
 }[] = [
   {
-    display: "Available",
+    display: "Đang có sẵn",
     value: "available",
     color: "green",
     icon: <IconProgressCheck size={14} />,
   },
   {
-    display: "Pending",
+    display: "Đang chờ",
     value: "pending",
     color: "gray.6",
     icon: <IconHourglassLow size={14} />,
   },
   {
-    display: "Booked",
+    display: "Đang được thuê",
     value: "booked",
     color: "red",
     icon: <IconCalendarCheck size={14} />,
   },
   {
-    display: "Not Available",
+    display: "Không có sẵn",
     value: "not available",
     color: "gray.6",
     icon: <IconSquareRoundedXFilled size={14} />,
@@ -72,6 +72,7 @@ export function CarStatus({ status, id }: TableActionsProps) {
       }
     }
   };
+
   return (
     <Menu shadow="md" width={200}>
       <Toast />
@@ -86,7 +87,7 @@ export function CarStatus({ status, id }: TableActionsProps) {
       </Menu.Target>
 
       <Menu.Dropdown>
-        <Menu.Label>Car Status</Menu.Label>
+        <Menu.Label>Trạng thái xe</Menu.Label>
 
         {statuses.map((item) => (
           <Menu.Item

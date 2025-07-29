@@ -61,7 +61,7 @@ export const AccountLayout = ({ children }: { children: React.ReactNode }) => {
                     <BiLogOutCircle size="1.2rem" />
                   </ActionIcon>
                 }
-                label={<Text c="gray.6">Logout</Text>}
+                label={<Text c="gray.6">Đăng xuất</Text>}
                 py="md"
               />
             </Box>

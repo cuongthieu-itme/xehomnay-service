@@ -38,7 +38,7 @@ export default function AddRegion({ countries }: any) {
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="countryId"
           >
-            Select Country
+            Quốc gia
           </label>
 
           <select
@@ -48,7 +48,7 @@ export default function AddRegion({ countries }: any) {
             onChange={(e) => setCountryId(e.target.value)}
           >
             <option value={""} disabled selected>
-              Select Country
+              Quốc gia
             </option>
             {countries?.map((country: any, i: number) => {
               return (
@@ -67,14 +67,14 @@ export default function AddRegion({ countries }: any) {
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="region"
           >
-            Region Name
+            Tên khu vực
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="region"
             name="region"
             type="text"
-            placeholder="Region Name"
+            placeholder="Tên khu vực"
             onChange={(e) => setRegion(e.target.value)}
           />
         </div>
@@ -84,7 +84,7 @@ export default function AddRegion({ countries }: any) {
             type="submit"
             disabled={loader}
           >
-            {loader ? <Loader /> : "Add Region"}
+            {loader ? <Loader /> : "Thêm khu vực"}
           </button>
         </div>
       </form>

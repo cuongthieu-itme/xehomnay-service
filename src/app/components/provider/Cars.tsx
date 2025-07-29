@@ -15,12 +15,12 @@ interface Props {
 }
 const header = (
   <Table.Tr>
-    <Table.Th>Image</Table.Th>
-    <Table.Th>Make</Table.Th>
+    <Table.Th>Hỉnh ảnh</Table.Th>
+    <Table.Th>Hãng</Table.Th>
     <Table.Th>Model</Table.Th>
-    <Table.Th>Year</Table.Th>
-    <Table.Th>Type</Table.Th>
-    <Table.Th>Status</Table.Th>
+    <Table.Th>Năm</Table.Th>
+    <Table.Th>Loại</Table.Th>
+    <Table.Th>Trạng thái</Table.Th>
   </Table.Tr>
 );
 export default function Cars({ cars, providerDetails }: Props) {
@@ -35,7 +35,7 @@ export default function Cars({ cars, providerDetails }: Props) {
         my="lg"
         label={
           <Title order={3} className="text-default">
-            All Cars ({cars?.length})
+            Tất cả xe ({cars?.length})
           </Title>
         }
       />
@@ -51,7 +51,7 @@ export default function Cars({ cars, providerDetails }: Props) {
               variant="gradient"
               gradient={primaryGradient}
             >
-              <IconPlus /> New Car
+              <IconPlus /> Thêm mới
             </Button>
           </Group>
         }

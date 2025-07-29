@@ -37,14 +37,14 @@ export default function AddCountry({ user, providerDetails }: any) {
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="country_name"
           >
-            Country Name
+            Tên quốc gia
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="country_name"
             name="country_name"
             type="text"
-            placeholder="Country Name"
+            placeholder="Tên quốc gia"
             onChange={(e) => setName(e.target.value)}
           />
         </div>
@@ -54,7 +54,7 @@ export default function AddCountry({ user, providerDetails }: any) {
             type="submit"
             disabled={loading}
           >
-            {loading ? <Loader /> : "Add Country"}
+            {loading ? <Loader /> : "Thêm quốc gia"}
           </button>
         </div>
       </form>

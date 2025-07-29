@@ -35,8 +35,8 @@ export const SelectFuelType = ({
   return (
     <Select
       width="100%"
-      label={label || "Fuel Type/EV"}
-      placeholder="Gasoline"
+      label={label || "Loại nhiên liệu"}
+      placeholder="Loại nhiên liệu"
       required={required}
       data={fuelTypes}
       value={value}

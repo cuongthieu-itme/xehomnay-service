@@ -45,15 +45,15 @@ export const SelectCarType = ({
   return (
     <Select
       width="100%"
-      label={label || "Body Type"}
-      placeholder="Sedan"
+      label={label || "Loại xe"}
+      placeholder="Loại xe"
       data={carTypes}
       value={value}
       defaultValue={"Any"}
       onChange={onChange}
       maxDropdownHeight={280}
       required={required}
-      nothingFoundMessage="Nothing found"
+      nothingFoundMessage="Không tìm thấy"
       filter={optionsFilter}
     />
   );

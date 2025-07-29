@@ -80,11 +80,11 @@ export default function RegionList({ regions }: any) {
         >
           <Table.Thead>
             <Table.Tr>
-              <Table.Th>S.N</Table.Th>
-              <Table.Th>Name</Table.Th>
-              <Table.Th>Country Name</Table.Th>
-              <Table.Th>CreatedAt</Table.Th>
-              <Table.Th>Action</Table.Th>
+              <Table.Th>STT</Table.Th>
+              <Table.Th>Tên</Table.Th>
+              <Table.Th>Quốc gia</Table.Th>
+              <Table.Th>Ngày tạo</Table.Th>
+              <Table.Th>Thao tác</Table.Th>
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>{rows}</Table.Tbody>

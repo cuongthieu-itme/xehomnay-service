@@ -28,24 +28,24 @@ export default async function page() {
   const {totalBooking,totalCar,totalReview,totalUser} = await adminStatics();
   const data = [
     {
-      title: "Booking",
+      title: "Đơn đặt xe",
       icon: <IconAlertCircle />,
       value: totalBooking?.toString(),
     },
     {
-      title: "Total Cars",
+      title: "Tổng số xe",
       icon: <IconCar />,
       value: totalCar?.toString(),
     },
 
     {
-      title: "Total Reviews",
+      title: "Đánh giá",
       icon: <IconMessage2 />,
       value: totalReview?.toString(),
     },
 
     {
-      title: "My Users",
+      title: "Người dùng",
       icon: <IconUsers />,
       value: totalUser?.toString(),
     },

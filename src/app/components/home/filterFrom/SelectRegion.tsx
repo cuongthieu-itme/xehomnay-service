@@ -18,7 +18,7 @@ export default function SelectRegion({
   return (
     <Select
       className="custom"
-      placeholder="Select Region"
+      placeholder="Khu vực"
       {...rest}
       data={
         regions

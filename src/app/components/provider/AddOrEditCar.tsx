@@ -143,7 +143,7 @@ export function AddOrEditCar({
         size="xl"
         opened={opened}
         onClose={close}
-        title="Add New Car"
+        title="Thêm mới"
         transitionProps={{
           transition: "slide-left",
         }}
@@ -174,12 +174,12 @@ export function AddOrEditCar({
         <Group grow my="sm">
           <Box>
             <Input.Label required={!carDetails.description}>
-              Description
+              Mô tả
             </Input.Label>
             <Textarea
               value={carDetails.description}
               onChange={(e) => updateProperty("description", e.target.value)}
-              placeholder="add a brief description of your vehicle for users"
+              placeholder="Thêm mô tả ngắn gọn về phương tiện của bạn cho người dùng"
             />
           </Box>
         </Group>
@@ -188,17 +188,19 @@ export function AddOrEditCar({
             required={!carDetails.bodyType}
             value={carDetails.bodyType}
             onChange={(value) => updateProperty("bodyType", value)}
+            label="Loại xe"
           />
           <SelectCarMake
             value={carDetails.make}
             onChange={(value) => updateProperty("make", value)}
             required={!carDetails.make}
+            label="Hãng xe"
           />
           <Box>
             <Input.Label required={!carDetails.model}>Model</Input.Label>
             <Input
               type="text"
-              placeholder="Car model"
+              placeholder="Model"
               value={carDetails.model}
               onChange={(e) => updateProperty("model", e.target.value)}
             />
@@ -206,29 +208,29 @@ export function AddOrEditCar({
 
           <YearPickerInput
             required={!carDetails.year}
-            label="Year"
-            placeholder="Year"
+            label="Năm sản xuất"
+            placeholder="Năm sản xuất"
             value={new Date(carDetails.year, 0, 1)}
             maxDate={new Date()}
             onChange={(value) => updateProperty("year", value?.getFullYear())}
           />
           <Box>
-            <Input.Label>Transmission</Input.Label>
+            <Input.Label>Hộp số</Input.Label>
             <br />
             <SegmentedControl
               w="100%"
               value={carDetails.transmission}
               onChange={(value) => updateProperty("transmission", value)}
               data={[
-                { label: "Automatic", value: "automatic" },
-                { label: "Manual", value: "manual" },
+                { label: "Tự động", value: "automatic" },
+                { label: "Số sàn", value: "manual" },
               ]}
             />
           </Box>
 
           <Box>
             <Input.Label required={!carDetails.engineCapaciy}>
-              Engine Capacity
+              Dung lượng động cơ
             </Input.Label>
             <Input
               type="text"
@@ -242,10 +244,11 @@ export function AddOrEditCar({
             required={!carDetails.fuelType}
             value={carDetails.fuelType}
             onChange={(value) => updateProperty("fuelType", value)}
+            label="Loại nhiên liệu"
           />
 
           <NumberInput
-            label="Seating Capacity"
+            label="Số chỗ ngồi"
             required={!carDetails.seatsCapacity}
             step={1}
             min={1}
@@ -254,7 +257,7 @@ export function AddOrEditCar({
           />
 
           <NumberInput
-            label="Number of Bags"
+            label="Số lượng hành lý"
             required={!carDetails.bagsCapacity}
             step={1}
             min={1}
@@ -263,7 +266,7 @@ export function AddOrEditCar({
           />
 
           <NumberInput
-            label="Number of Doors"
+            label="Số lượng cửa"
             required={!carDetails.doorsCapacity}
             step={1}
             min={1}
@@ -272,11 +275,11 @@ export function AddOrEditCar({
           />
 
           <Box w="100%">
-            <Input.Label required={!carDetails.color}>Color</Input.Label>
+            <Input.Label required={!carDetails.color}>Màu sắc</Input.Label>
             <Input
               w="100%"
               type="text"
-              placeholder="E.g. Black"
+              placeholder="E.g. Đen"
               value={carDetails.color}
               onChange={(e) => updateProperty("color", e.target.value)}
             />
@@ -286,7 +289,7 @@ export function AddOrEditCar({
         <Group grow my="sm">
           <Box>
             <Input.Label>
-              Other Features. Separate features with {'"|"'}
+              Tính năng khác. Ngăn cách các tính năng bằng dấu {'"|"'}
             </Input.Label>
             <Textarea
               placeholder="E.g. Bluetooth | Backup Camera | Android Screen |  Keyless Entry"
@@ -304,11 +307,11 @@ export function AddOrEditCar({
             onChange={(e) =>
               updateProperty("acAvailable", e.currentTarget.checked)
             }
-            label="AC Available"
+            label="Điều hòa có sẵn"
             color="orange"
           />
           <Checkbox
-            label="AC Working"
+            label="Điều hòa hoạt động"
             color="orange"
             disabled={!carDetails.acAvailable}
             checked={carDetails.acAvailable && carDetails.acWorking}
@@ -320,13 +323,13 @@ export function AddOrEditCar({
 
         <Group grow pt="xl">
           <NumberInput
-            label="Price Per Hour"
+            label="Giá mỗi giờ"
             required={!carDetails.pricePerHour}
             value={carDetails.pricePerHour}
             onChange={(value) => updateProperty("pricePerHour", value)}
           />
           <NumberInput
-            label="Price Per Day"
+            label="Giá mỗi ngày"
             required={!carDetails.pricePerDay}
             value={carDetails.pricePerDay}
             onChange={(value) => updateProperty("pricePerDay", value)}
@@ -335,7 +338,7 @@ export function AddOrEditCar({
         <Space pt="xl" />
         <GridLayout>
           <NumberInput
-            label="Minimum Rental Period (Hours/Days)"
+            label="Thời gian thuê tối thiểu (Giờ/Ngày)"
             required={!carDetails.minimumRent}
             step={1}
             min={1}
@@ -344,7 +347,7 @@ export function AddOrEditCar({
           />
 
           <NumberInput
-            label="Maximum Rental Period (Hours/Days)"
+            label="Thời gian thuê tối đa (Giờ/Ngày)"
             step={1}
             min={1}
             value={carDetails.maximumRent}
@@ -359,7 +362,7 @@ export function AddOrEditCar({
             variant="gradient"
             gradient={primaryGradient}
           >
-            {mode === "new" ? "Add Car" : "Update"}
+            {mode === "new" ? "Thêm mới" : "Cập nhật"}
           </Button>
         </Flex>
       </Drawer>

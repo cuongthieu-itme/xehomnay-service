@@ -13,7 +13,7 @@ export default function Reviews({ reviews, user }: ReviewProps) {
         my="lg"
         label={
           <Title order={3} className="text-default">
-            Reviews ({reviews.length})
+            Đánh giá ({reviews.length})
           </Title>
         }
       />

@@ -183,7 +183,7 @@ export default function ProviderCompanyDetails({
                 }}
               />
               {isNext && Number(companyDetails.country_id) === -1 && (
-                <Input.Error>Select Country</Input.Error>
+                <Input.Error>Quốc gia</Input.Error>
               )}
             </Box>
             <Box my="sm">
@@ -206,7 +206,7 @@ export default function ProviderCompanyDetails({
                 }}
               />
               {isNext && companyDetails.region_id === -1 && (
-                <Input.Error>Select Region</Input.Error>
+                <Input.Error>Khu vực</Input.Error>
               )}
             </Box>
           </Group>

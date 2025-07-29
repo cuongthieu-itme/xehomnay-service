@@ -15,10 +15,10 @@ function RegionTableList({ regions }: any) {
     <Table>
       <Table.Thead>
         <Table.Tr>
-          <Table.Th>S.No</Table.Th>
-          <Table.Th>Name</Table.Th>
-          <Table.Th>Country</Table.Th>
-          <Table.Th>Status</Table.Th>
+          <Table.Th>STT</Table.Th>
+          <Table.Th>Tên</Table.Th>
+          <Table.Th>Quốc gia</Table.Th>
+          <Table.Th>Trạng thái</Table.Th>
         </Table.Tr>
       </Table.Thead>
       <Table.Tbody>{rows}</Table.Tbody>

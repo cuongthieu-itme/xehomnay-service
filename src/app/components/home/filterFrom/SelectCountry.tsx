@@ -14,7 +14,7 @@ export default function SelectCountry({ value, onChange }: Props) {
   return (
     <Select
       className="custom"
-      placeholder="Select Country"
+      placeholder="Quốc gia"
       searchable
       nothingFoundMessage="No country found"
       data={

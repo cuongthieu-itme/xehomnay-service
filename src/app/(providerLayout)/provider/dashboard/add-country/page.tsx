@@ -38,7 +38,7 @@ export default async function page() {
         }}
         size="xl"
       >
-        Countries List
+        Danh sách quốc gia
       </Text>
       <CountryTableList countries={countries} />
       <Divider py={10} />
@@ -48,7 +48,7 @@ export default async function page() {
         }}
         size="xl"
       >
-        Regions List
+        Danh sách khu vực
       </Text>
       <RegionTableList regions={regions} />
     </DashboardLayout>

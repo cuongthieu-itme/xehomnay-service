@@ -134,7 +134,7 @@ export default function AdminDashboard({
                   className="text-muted"
                   style={{ cursor: "pointer" }}
                 >
-                  Log out
+                  Đăng xuất
                 </Text>
               </ActionIcon>
             </Flex>

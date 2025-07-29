@@ -40,26 +40,26 @@ const data = [
   {
     icon: <IconDashboard size="1rem" />,
     color: "blue",
-    label: "Dashboard",
+    label: "Tổng quan",
     endpoint: "/dashboard",
   },
   {
     icon: <IconCar size="1rem" />,
     color: "violet",
-    label: "My cars",
+    label: "Xe",
     endpoint: "/dashboard/cars",
   },
   {
     icon: <IconPlus size="1rem" />,
     color: "purple",
-    label: "Country",
+    label: "Quốc gia",
     endpoint: "/dashboard/add-country",
   },
 
   {
     icon: <IconMessage size="1rem" />,
     color: "orange",
-    label: "My Reviews",
+    label: "Đánh giá",
     endpoint: "/dashboard/reviews",
   },
 ];
@@ -121,7 +121,7 @@ export default function DashboardLayout({
                   className="text-muted"
                   style={{ cursor: "pointer" }}
                 >
-                  Log out
+                  Đăng xuất
                 </Text>
               </ActionIcon>
             </Flex>

@@ -44,7 +44,7 @@ const Profile = ({ user }: any) => {
             {user?.role === "provider" && (
               <Link
                 href={"/provider/dashboard"}
-                className="flex items-center 
+                className="flex items-center
             "
               >
                 <User size={15} className="mr-2" />
@@ -55,7 +55,7 @@ const Profile = ({ user }: any) => {
               <>
                 <Link
                   href={"/my-account/profile"}
-                  className="flex items-center 
+                  className="flex items-center
        "
                 >
                   <User size={15} className="mr-2" />
@@ -67,7 +67,7 @@ const Profile = ({ user }: any) => {
               <>
                 <Link
                   href={"/admin/dashboard"}
-                  className="flex items-center 
+                  className="flex items-center
         "
                 >
                   <User size={15} className="mr-2" />
@@ -83,7 +83,7 @@ const Profile = ({ user }: any) => {
           >
             <div className="flex items-center">
               <LogOutIcon size={15} className="mr-2" />
-              Logout
+              Đăng xuất
             </div>
           </DropdownMenuItem>
         </DropdownMenuContent>

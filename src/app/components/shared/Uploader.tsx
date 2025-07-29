@@ -38,7 +38,7 @@ export default function Uploader({ onUpload, options }: Props) {
           }
           return (
             <Button variant="outline" onClick={handleOnClick}>
-              Upload image
+              Tải ảnh lên
             </Button>
           );
         }}
