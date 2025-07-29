@@ -13,7 +13,7 @@ export const YearModel = () => {
 
   return (
     <>
-      <Text my={16}>Year</Text>
+      <Text my={16}>Năm</Text>
       <RangeSlider
         py="xl"
         min={1990}

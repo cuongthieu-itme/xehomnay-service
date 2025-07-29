@@ -7,7 +7,7 @@ export const lg = "74em";
 export const xl = "90em";
 
 export const ghCurrency = "BDT৳";
-export const ghCurrencySymbol = "৳";
+export const ghCurrencySymbol = "₫";
 
 export const primaryGradient: MantineGradient = { from: "pink", to: "yellow" };
 

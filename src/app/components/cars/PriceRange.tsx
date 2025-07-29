@@ -1,14 +1,14 @@
-import { ghCurrencySymbol } from "@/const";
 import { useFiltersContext } from "@/context/FilterContext";
 import { Box, Flex, NumberInput, RangeSlider, Text } from "@mantine/core";
+import { convertPrice } from "@/lib/price";
 
 const lowestPrice = 0;
-const highestPrice = 5000;
+const highestPrice = 50000000;
 
 export const PriceRange = () => {
   const { state, updateFilterProperty } = useFiltersContext();
   const labelFormatter = (value: number) => {
-    return `${ghCurrencySymbol} ${value}`;
+    return `${convertPrice(value)}`;
   };
 
   function handleSliderChange([min, max]: number[]) {
@@ -18,7 +18,7 @@ export const PriceRange = () => {
 
   return (
     <>
-      <Text my={16}>Price Range</Text>
+      <Text my={16}>Khoảng giá</Text>
       <RangeSlider
         py="xl"
         step={10}
@@ -33,7 +33,7 @@ export const PriceRange = () => {
       />
       <Flex gap={8}>
         <Box>
-          <Text size="xs">Min.</Text>
+          <Text size="xs">Giá thấp nhất</Text>
           <NumberInput
             step={10}
             min={lowestPrice}
@@ -45,10 +45,10 @@ export const PriceRange = () => {
           />
         </Box>
         <Box>
-          <Text size="xs">Max.</Text>
+          <Text size="xs">Giá cao nhất</Text>
           <NumberInput
             step={10}
-            min={10}
+            min={lowestPrice}
             max={highestPrice}
             value={state.maxPrice}
             onChange={(value) =>

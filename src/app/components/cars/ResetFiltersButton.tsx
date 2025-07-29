@@ -8,7 +8,7 @@ export const ResetFiltersButton = () => {
     <Button variant="subtle" onClick={resetFilters}>
       <IconRefresh size="14px" />{" "}
       <Text component="span" mx={2}>
-        Reset All
+        Đặt lại tất cả
       </Text>
     </Button>
   );

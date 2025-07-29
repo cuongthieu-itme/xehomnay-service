@@ -16,7 +16,7 @@ export const FiltersDrawer = () => {
       <Drawer
         opened={opened}
         onClose={close}
-        title={"Filters"}
+        title={"Bộ lọc"}
         display={{ base: "inline-block", md: "none" }}
         position="top"
         size="xl"
@@ -27,7 +27,7 @@ export const FiltersDrawer = () => {
         }}
       >
         <Flex align="center" justify="space-between">
-          <Title order={4}>Filters</Title>
+          <Title order={4}>Bộ lọc</Title>
           <ResetFiltersButton />
         </Flex>
 
@@ -46,7 +46,7 @@ export const FiltersDrawer = () => {
       >
         <IconFilterCog size="14px" />{" "}
         <Text component="span" mx={2}>
-          Open Filters
+          Bộ lọc
         </Text>
       </Button>
     </>

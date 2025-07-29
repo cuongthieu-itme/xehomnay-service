@@ -5,7 +5,7 @@ export const Transmission = () => {
   const { state, updateFilterProperty } = useFiltersContext();
   return (
     <>
-      <Text my={16}>Transmission</Text>
+      <Text my={16}>Hộp số</Text>
 
       <SegmentedControl
         color="pink"

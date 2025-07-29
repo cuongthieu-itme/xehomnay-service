@@ -4,7 +4,7 @@ import Breadcrumb from "@/app/components/shared/Breadcrumb";
 export default function Contact() {
   return (
     <>
-      <Breadcrumb label="Contact Us" />
+      <Breadcrumb label="Liên hệ" />
       <ContactPage />
     </>
   );

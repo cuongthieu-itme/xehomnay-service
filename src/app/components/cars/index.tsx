@@ -37,7 +37,7 @@ export default function CarsPageLayout({ cars }: any) {
 
   return (
     <>
-      <Breadcrumb label="Cars" />
+      <Breadcrumb label="Xe" />
       <Container className={styles.parentContainer} size="xl" my="sm" py="md">
         <SearchEngine />
 
@@ -49,7 +49,7 @@ export default function CarsPageLayout({ cars }: any) {
             variant="subtle"
           >
             <IconBrandGoogleMaps size="16px" />
-            {showMap ? "Hide Map" : "Show Map"}
+            {showMap ? "Ẩn bản đồ" : "Hiển thị bản đồ"}
           </Button>
         </Flex>
 
@@ -62,7 +62,7 @@ export default function CarsPageLayout({ cars }: any) {
           {/* Filters */}
           <Card w={{ base: "100%", md: "350px" }}>
             <Flex align="center" justify="space-between">
-              <Title order={4}>Filters</Title>
+              <Title order={4}>Bộ lọc</Title>
               <Box display={{ base: "none", md: "inline-block" }}>
                 <ResetFiltersButton />
               </Box>

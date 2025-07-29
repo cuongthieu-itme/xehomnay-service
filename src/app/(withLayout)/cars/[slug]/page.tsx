@@ -23,7 +23,7 @@ export default async function page({ params }: CarDetailsPageProps) {
   const carDetails = await getCarDetails(user?.id, slug);
   return (
     <>
-      <Breadcrumb label={"Rent a Car"} />
+      <Breadcrumb label={"Đặt xe"} />
 
       <section className="py-10">
         <div className="mx-auto">

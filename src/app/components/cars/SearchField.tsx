@@ -165,7 +165,7 @@ export const SearchEngine = () => {
           className="text-white rounded"
           onClick={handleSearchCars}
         >
-          Search for car
+          Tìm kiếm xe
         </Button>
         {/* Reset url params */}
         {searchParams.get("country") && (

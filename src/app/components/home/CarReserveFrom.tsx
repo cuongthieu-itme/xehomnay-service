@@ -131,7 +131,7 @@ const CarReserveFrom = () => {
               className="w-full"
               size="md"
             >
-              Search for car
+              Tìm kiếm xe
             </Button>
           </div>
         </form>

@@ -13,8 +13,8 @@ export const NoCarsFound = () => {
       <Text className="text-default">
         <FaBoxOpen size="4rem" />
       </Text>
-      <Title className="text-muted">No Cars Found</Title>
-      <Text c="gray.6">Sorry! No cars found for your search</Text>
+      <Title className="text-muted">Không tìm thấy xe</Title>
+      <Text c="gray.6">Xin lỗi! Không tìm thấy xe phù hợp với yêu cầu của bạn</Text>
     </Card>
   );
 };
