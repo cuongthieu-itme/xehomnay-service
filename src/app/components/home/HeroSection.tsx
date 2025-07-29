@@ -10,7 +10,7 @@ const HeroSection = () => {
           <div className="max_width relative">
             <div className="indexTop_Left z-10 relative">
               <h1 className="text-4xl mt-20 px-4 md:px-0 font-bold text-white">
-                Enjoy Your Ride.
+                Chúc bạn có chuyến đi vui vẻ.
               </h1>
               <CarSlider />
             </div>

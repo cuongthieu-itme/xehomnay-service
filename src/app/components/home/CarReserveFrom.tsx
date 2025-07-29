@@ -103,7 +103,7 @@ const CarReserveFrom = () => {
         />
         <Toast />
         <div className="">
-          <h2 className="mb-5 font-bold text-3xl">Car Reservation</h2>
+          <h2 className="mb-5 font-bold text-3xl">Đặt xe</h2>
         </div>
 
         <form onSubmit={handleSearchCars}>

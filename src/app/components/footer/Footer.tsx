@@ -20,19 +20,21 @@ export default function Footer() {
           <div className={styles.footer_left}>
             <Logo />
             <p className="mt-4 text-justify">
-              Enjoy Rent a Car offers you a safe and reliable Xe Hôm Nay service
-              with and without a driver. We have been operating in the territory
-              of Montenegro for 5 years, with more than 3000 satisfied clients.
+              Xe Hôm Nay mang đến cho bạn dịch vụ thuê xe an toàn và đáng tin
+              cậy, có hoặc không có tài xế. Với hơn 5 năm hoạt động tại
+              Montenegro, chúng tôi tự hào đã phục vụ hơn 3000 khách hàng hài
+              lòng.
             </p>
             <p className="mt-4 text-justify">
-              All our experiences and offers are created to make your
-              unforgettable trip and everyday life in Montenegro easier, more
-              comfortable, safer and faster with Enjoy Rent a Car.
+              Tất cả các dịch vụ và trải nghiệm của chúng tôi được thiết kế để
+              giúp chuyến đi của bạn trở nên đáng nhớ, đồng thời mang lại sự
+              tiện nghi, an toàn và nhanh chóng cho cuộc sống hàng ngày tại
+              Montenegro cùng Xe Hôm Nay.
             </p>
           </div>
           <div className={styles.footer_center}>
             <div className={styles.footer_center_top}>
-              <h3>Contact information</h3>
+              <h3>Thông tin liên hệ</h3>
               <div className={styles.info}>
                 <Link href="" className="text-white flex gap-1">
                   <MapPin size={24} className="text-red-500" />
@@ -55,7 +57,7 @@ export default function Footer() {
               </div>
             </div>
             <div className={styles.footer_center_bottom}>
-              <h3>Follow Us</h3>
+              <h3>Liên hệ với chúng tôi</h3>
               <div className="flex pt-4 gap-2">
                 <Link
                   href={""}
@@ -85,7 +87,7 @@ export default function Footer() {
             </div>
           </div>
           <div className={styles.footer_right}>
-            <h3>Send us a message</h3>
+            <h3>Gửi tin nhắn</h3>
             <ContactFrom />
           </div>
         </div>
@@ -93,7 +95,7 @@ export default function Footer() {
           <p className="text-center text-white text-base">
             &copy; {new Date().getFullYear()} -{" "}
             <Link href={"/"} className="text-red-600 hover:underline">
-              Team SDP4
+              TTC
             </Link>{" "}
             - {"  "}
             All rights reserved

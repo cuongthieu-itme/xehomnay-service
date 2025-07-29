@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import { convertPrice } from "@/lib/price";
 import { carSliderData } from "@/lib/utils";
 import { Button } from "@mantine/core";
 import Carousel from "react-multi-carousel";
@@ -59,10 +60,10 @@ const CarSlider = () => {
               variant="gradient"
               className=" text-white text-xl py-2 px-10 border border-white rounded"
             >
-              Book now
+              Đặt ngay
             </Button>
             <Button className="bg-transparent text-xl text-white py-2 px-4 border border-white rounded ml-2">
-              From € {car.price} /day
+              Từ {convertPrice(car.price)} /ngày
             </Button>
           </div>
         </div>

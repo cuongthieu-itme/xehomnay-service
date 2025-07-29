@@ -21,11 +21,11 @@ interface NavItemProps {
 }
 const navItems = [
   // { name: "Home", path: "/", current: false },
-  { name: "Rent a Car", path: "/cars", current: false },
-  { name: "About", path: "/about", current: false },
-  { name: "Other Services", path: "/other-services", current: false },
-  { name: "Faq", path: "/faq", current: false },
-  { name: "Contact", path: "/contact", current: false },
+  { name: "Xe cho thuê", path: "/cars", current: false },
+  { name: "Về chúng tôi", path: "/about", current: false },
+  { name: "Dịch vụ khác", path: "/other-services", current: false },
+  { name: "FAQ", path: "/faq", current: false },
+  { name: "Liên hệ", path: "/contact", current: false },
 ];
 
 export default function Mobile() {

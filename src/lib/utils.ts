@@ -74,53 +74,53 @@ export const getDefaultSelectedRegion = (
   return regions[0];
 };
 
+//car slider data
 export const carSliderData = [
   {
     id: 1,
     name: "Toyota Yaris",
     system: "Automatic",
-    price: 100,
+    price: 2500000, // 2,500,000 VND
     image: "/images/slider/6.png",
   },
   {
     id: 2,
     name: "Toyota Land Cruiser",
     system: "Automatic",
-    price: 120,
+    price: 3000000, // 3,000,000 VND
     image: "/images/slider/5.png",
   },
   {
     id: 3,
     name: "Toyota Yaris Cross",
     system: "Automatic",
-    price: 150,
+    price: 3750000, // 3,750,000 VND
     image: "/images/slider/4.png",
   },
   {
     id: 4,
     name: "Toyota Corolla",
     system: "Automatic",
-    price: 200,
+    price: 5000000, // 5,000,000 VND
     image: "/images/slider/3.png",
   },
   {
     id: 5,
     name: "Toyota C HR",
     system: "Automatic",
-    price: 250,
+    price: 6250000, // 6,250,000 VND
     image: "/images/slider/2.png",
   },
   {
     id: 6,
     name: "Toyota bZ4X",
     system: "Automatic",
-    price: 300,
+    price: 7500000, // 7,500,000 VND
     image: "/images/slider/1.png",
   },
 ];
 
 //rental car data
-
 export const rentalCarData = [
   {
     id: 1,
@@ -140,11 +140,11 @@ export const rentalCarData = [
       "/images/slider/1.png",
     ],
     price: {
-      oneToThreeDays: 75,
-      fourToSevenDays: 60,
-      eightToFifteenDays: 55,
-      fifteenPlusDays: 50,
-      basePrice: 50,
+      oneToThreeDays: 1875000, // 1,875,000 VND
+      fourToSevenDays: 1500000, // 1,500,000 VND
+      eightToFifteenDays: 1375000, // 1,375,000 VND
+      fifteenPlusDays: 1250000, // 1,250,000 VND
+      basePrice: 1250000, // 1,250,000 VND
     },
     availableOnRequest: ["Navigation", "Wi-Fi", "Child seat"],
     amenities: {
@@ -173,11 +173,11 @@ export const rentalCarData = [
       "/images/slider/1.png",
     ],
     price: {
-      oneToThreeDays: 100,
-      fourToSevenDays: 80,
-      eightToFifteenDays: 75,
-      fifteenPlusDays: 70,
-      basePrice: 70,
+      oneToThreeDays: 2500000, // 2,500,000 VND
+      fourToSevenDays: 2000000, // 2,000,000 VND
+      eightToFifteenDays: 1875000, // 1,875,000 VND
+      fifteenPlusDays: 1750000, // 1,750,000 VND
+      basePrice: 1750000, // 1,750,000 VND
     },
     availableOnRequest: ["Navigation", "Wi-Fi", "Child seat"],
     amenities: {
@@ -206,11 +206,11 @@ export const rentalCarData = [
       "/images/slider/1.png",
     ],
     price: {
-      oneToThreeDays: 150,
-      fourToSevenDays: 120,
-      eightToFifteenDays: 110,
-      fifteenPlusDays: 100,
-      basePrice: 100,
+      oneToThreeDays: 3750000, // 3,750,000 VND
+      fourToSevenDays: 3000000, // 3,000,000 VND
+      eightToFifteenDays: 2750000, // 2,750,000 VND
+      fifteenPlusDays: 2500000, // 2,500,000 VND
+      basePrice: 2500000, // 2,500,000 VND
     },
     availableOnRequest: ["Navigation", "Wi-Fi", "Child seat"],
     amenities: {
@@ -239,11 +239,11 @@ export const rentalCarData = [
       "/images/slider/1.png",
     ],
     price: {
-      oneToThreeDays: 200,
-      fourToSevenDays: 160,
-      eightToFifteenDays: 150,
-      fifteenPlusDays: 140,
-      basePrice: 140,
+      oneToThreeDays: 5000000, // 5,000,000 VND
+      fourToSevenDays: 4000000, // 4,000,000 VND
+      eightToFifteenDays: 3750000, // 3,750,000 VND
+      fifteenPlusDays: 3500000, // 3,500,000 VND
+      basePrice: 3500000, // 3,500,000 VND
     },
     availableOnRequest: ["Navigation", "Wi-Fi", "Child seat"],
     amenities: {
@@ -272,11 +272,11 @@ export const rentalCarData = [
       "/images/slider/1.png",
     ],
     price: {
-      oneToThreeDays: 250,
-      fourToSevenDays: 200,
-      eightToFifteenDays: 185,
-      fifteenPlusDays: 170,
-      basePrice: 170,
+      oneToThreeDays: 6250000, // 6,250,000 VND
+      fourToSevenDays: 5000000, // 5,000,000 VND
+      eightToFifteenDays: 4625000, // 4,625,000 VND
+      fifteenPlusDays: 4250000, // 4,250,000 VND
+      basePrice: 4250000, // 4,250,000 VND
     },
     availableOnRequest: ["Navigation", "Wi-Fi", "Child seat"],
     amenities: {
@@ -305,11 +305,11 @@ export const rentalCarData = [
       "/images/slider/1.png",
     ],
     price: {
-      oneToThreeDays: 300,
-      fourToSevenDays: 240,
-      eightToFifteenDays: 220,
-      fifteenPlusDays: 200,
-      basePrice: 200,
+      oneToThreeDays: 7500000, // 7,500,000 VND
+      fourToSevenDays: 6000000, // 6,000,000 VND
+      eightToFifteenDays: 5500000, // 5,500,000 VND
+      fifteenPlusDays: 5000000, // 5,000,000 VND
+      basePrice: 5000000, // 5,000,000 VND
     },
     availableOnRequest: ["Navigation", "Wi-Fi", "Child seat"],
     amenities: {

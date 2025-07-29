@@ -48,7 +48,7 @@ const Profile = ({ user }: any) => {
             "
               >
                 <User size={15} className="mr-2" />
-                Profile
+                Thông tin
               </Link>
             )}
             {user?.role === "user" && (
@@ -59,7 +59,7 @@ const Profile = ({ user }: any) => {
        "
                 >
                   <User size={15} className="mr-2" />
-                  Profile
+                  Thông tin
                 </Link>
               </>
             )}
@@ -71,7 +71,7 @@ const Profile = ({ user }: any) => {
         "
                 >
                   <User size={15} className="mr-2" />
-                  Profile
+                  Thông tin
                 </Link>
               </>
             )}

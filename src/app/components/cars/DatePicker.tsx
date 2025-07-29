@@ -32,7 +32,7 @@ export default function DatePicker() {
         <PickupDate
           value={picupDate}
           onChange={(date) => setPicupDate(date)}
-          placeholder="Select pickup date"
+          placeholder="Thời gian bắt đầu"
           minDate={today}
         />
       </Box>
@@ -41,7 +41,7 @@ export default function DatePicker() {
         <ReturnDate
           value={returnDate}
           onChange={setReturnDate}
-          placeholder="Select return date"
+          placeholder="Thời gian kết thúc"
           minDate={tomorrow}
         />
       </Box>

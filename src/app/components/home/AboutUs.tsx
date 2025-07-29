@@ -9,19 +9,21 @@ const AboutUs = () => {
         <Container>
           <div className="max_width_about">
             <div>
-              <h2 className="mt-20 mb-7 font-bold text-4xl">About Us</h2>
+              <h2 className="mt-20 mb-7 font-bold text-4xl">Về chúng tôi</h2>
               <p className="text-xl">
-                Enjoy Xe Hôm Nay Enjoy Xe Hôm Nay offers you a safe and reliable
-                Xe Hôm Nay service with and without a driver. We have been
-                operating in the territory of Montenegro for 5 years, with more
-                than 3000 satisfied clients. Enjoy Rent a Car offers you
-                services, entrusted to a very experienced and professional staff
-                that is available 24 hours a day.
+                Tại Xe Hôm Nay, chúng tôi mang đến dịch vụ thuê xe an toàn, đáng
+                tin cậy và linh hoạt, với tùy chọn có hoặc không có tài xế. Với
+                hơn 5 năm kinh nghiệm hoạt động tại Montenegro, chúng tôi tự hào
+                đã phục vụ hơn 3000 khách hàng hài lòng. Dịch vụ của Xe Hôm Nay
+                được vận hành bởi đội ngũ nhân viên chuyên nghiệp, giàu kinh
+                nghiệm và luôn sẵn sàng hỗ trợ bạn 24/7. Hãy để chúng tôi đồng
+                hành cùng bạn, mang lại trải nghiệm di chuyển thoải mái và trọn
+                vẹn nhất!
               </p>
 
               <Link href="/about">
                 <Button className="mt-7 mb-16 bg-red-700 text-white rounded text-xl font-medium">
-                  Read More
+                  Xem thêm
                 </Button>
               </Link>
             </div>

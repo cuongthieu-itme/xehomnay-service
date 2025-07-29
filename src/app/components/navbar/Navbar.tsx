@@ -7,11 +7,11 @@ import NavItem from "./NavItem";
 
 const navItems = [
   // { name: "Home", path: "/", current: false },
-  { name: "Rent a Car", path: "/cars", current: false },
-  { name: "About", path: "/about", current: false },
-  { name: "Other Services", path: "/other-services", current: false },
-  { name: "Faq", path: "/faq", current: false },
-  { name: "Contact", path: "/contact", current: false },
+  { name: "Xe cho thuê", path: "/cars", current: false },
+  { name: "Về chúng tôi", path: "/about", current: false },
+  { name: "Dịch vụ khác", path: "/other-services", current: false },
+  { name: "FAQ", path: "/faq", current: false },
+  { name: "Liên hệ", path: "/contact", current: false },
 ];
 export default function Navbar() {
   return (
@@ -52,7 +52,7 @@ export default function Navbar() {
                   className={`text-gray-600 text-center hover:text-red-600 px-3 py-2 rounded-md text-lg font-medium cursor-pointer border-b-2 md:border-b-0 md:text-gray-600
                   `}
                 >
-                  Home
+                  Trang chủ
                 </Link>
                 {navItems.map((item) => (
                   <NavItem key={item.name} path={item.path} label={item.name} />
