@@ -4,21 +4,20 @@ export default function ContactPage() {
   return (
     <section>
       <Container>
-        {" "}
         <div className="pb-2">
           <h2 className="mt-16 pb-2 mb-3 border-b border-b-red-600 text-3xl font-bold">
-            Contact
+            Liên Hệ Với Xe Hôm Nay
           </h2>
         </div>
         <div className="pb-10 pt-2">
           <div>
             <p className="pt-2 text-xl">
-              Visit us at our branch office on the roundabout in Kotor. The old
-              town, post office and bus station are within a 5-minute walk from
-              our location.
+              Ghé thăm văn phòng của Xe Hôm Nay tại khu vực vòng xuyến Kotor,
+              Montenegro. Từ đây, bạn chỉ mất 5 phút đi bộ để đến khu phố cổ,
+              bưu điện hoặc bến xe buýt, vô cùng thuận tiện.
             </p>
             <p className="pt-2 text-xl font-medium">
-              Working hours are every day from 08:00h to 16:00h.
+              Giờ làm việc: Mỗi ngày từ 08:00 đến 16:00.
             </p>
           </div>
         </div>

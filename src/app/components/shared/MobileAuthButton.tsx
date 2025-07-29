@@ -16,7 +16,7 @@ const MobileAuthButton = () => {
           bg-red-700
             hover:bg-red-600 transition duration-100 ease-in-out rounded text-white  px-3 py-2 text-lg font-medium cursor-pointer  `}
         >
-          Login
+          Đăng nhập
         </Link>
       )}
     </div>

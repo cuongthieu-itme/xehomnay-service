@@ -63,14 +63,14 @@ export default function LoginApp() {
 
       <div className="w-full sm:w-2/3 md:w-2/5  mx-auto border py-5 px-5 sm:px-12 md:px-5">
         <p className="text-gray-500 font-inter text-sm text-center">
-          Login to your account
+          Đăng nhập
         </p>
         <div className="flex gap-3">
           <GoogleButton />
           <GithubLogin />
         </div>
         <Divider
-          label="Or continue with email"
+          label="Hoặc tiếp tục với Email"
           labelPosition="center"
           my="sm"
         />
@@ -82,7 +82,7 @@ export default function LoginApp() {
             <TextInput
               name="email"
               label="Email"
-              placeholder="Enter your email"
+              placeholder="Nhập email của bạn"
               type="email"
               value={loginForm.values.email}
               onChange={(e) =>
@@ -91,8 +91,8 @@ export default function LoginApp() {
             />
             <PasswordInput
               name="password"
-              label="Password"
-              placeholder="Enter your password"
+              label="Mật khẩu"
+              placeholder="Nhập mật khẩu của bạn"
               type="password"
               value={loginForm.values.password}
               onChange={(e) =>
@@ -106,13 +106,13 @@ export default function LoginApp() {
               href={"/signup"}
               className="text-right hover:underline hover:text-green-700 "
             >
-              Create an account ? Signup
+              Tạo tài khoản ? Đăng ký
             </Link>
             <Link
               href={"/forgot-password"}
               className="text-right hover:underline hover:text-green-700 "
             >
-              Forgot password?
+              Quên mật khẩu?
             </Link>
           </div>
 
@@ -122,14 +122,14 @@ export default function LoginApp() {
             type="submit"
             className="bg-red-600 hover:bg-red-700 w-full text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline"
           >
-            Login
+            Đăng nhập
           </button>
         </form>
         <Link
           href={"/create-provider"}
           className="text-sm text-blue-500 hover:underline hover:text-green-700"
         >
-          Want to Rent your Car? Create Provider Account.
+          Bạn muốn cho thuê xe? Tạo tài khoản nhà cung cấp.
         </Link>
       </div>
     </Container>
