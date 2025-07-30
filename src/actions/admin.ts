@@ -1097,3 +1097,33 @@ export const deleteReview = async (id: string) => {
     return { error: 'Failed to delete review' }
   }
 }
+
+// update admin account details
+export const updateAdminAccount = async (
+  userId: string,
+  adminDetails: {
+    name?: string;
+    email?: string;
+    image?: string;
+  }
+) => {
+  try {
+    const adminUpdate = await prisma.user.update({
+      where: {
+        id: userId,
+      },
+      data: {
+        name: adminDetails.name,
+        email: adminDetails.email,
+        image: adminDetails.image,
+      },
+    });
+    
+    if (!adminUpdate) {
+      return { error: "Error updating admin" };
+    }
+    return { status: "success", message: "Admin profile updated successfully" };
+  } catch (error) {
+    return { error: "Failed to update admin profile" };
+  }
+};
