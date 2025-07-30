@@ -25,18 +25,20 @@ import {
   updateProviderBookingStatus,
 } from "@/actions/auth";
 import { ghCurrency } from "@/const";
-import { formatDate } from "@/lib/utils";
+import { convertDate } from "@/lib/date";
 import toast from "react-hot-toast";
 import { StatusRenderer } from "../StatusRenderer";
+import { convertPrice } from "@/lib/price";
+
 
 const header = (
   <Table.Tr>
-    <Table.Th>Date Booked</Table.Th>
-    <Table.Th>User</Table.Th>
-    <Table.Th>Pickup Date</Table.Th>
-    <Table.Th>Return Date</Table.Th>
-    <Table.Th>Price</Table.Th>
-    <Table.Th>Status</Table.Th>
+    <Table.Th>Ngày thuê</Table.Th>
+    <Table.Th>Người dùng</Table.Th>
+    <Table.Th>Ngày lấy xe</Table.Th>
+    <Table.Th>Ngày trả xe</Table.Th>
+    <Table.Th>Giá</Table.Th>
+    <Table.Th>Trạng thái</Table.Th>
   </Table.Tr>
 );
 export default function Bookings({ providerId }: { providerId: string }) {
@@ -50,11 +52,11 @@ export default function Bookings({ providerId }: { providerId: string }) {
       bookingId={item.id}
       providerId={providerId}
       carId={carId}
-      dateBooked={new Date(item.createdAt)}
+      dateBooked={convertDate(item.createdAt)}
       user={item.user}
-      pickupDate={new Date(item.pickUpDate)}
-      returnDate={new Date(item.returnDate)}
-      price={item.totalPrice}
+      pickupDate={convertDate(item.pickUpDate)}
+      returnDate={convertDate(item.returnDate)}
+      price={convertPrice(item.totalPrice)}
       status={item.status as BookingStatus}
     />
   ));
@@ -77,8 +79,7 @@ export default function Bookings({ providerId }: { providerId: string }) {
         my="lg"
         label={
           <Title order={4} className="text-default" mb="lg">
-            Bookings for {bookings[0].cars?.make} {bookings[0].cars?.model} (
-            {bookings.length})
+            Danh sách đơn đặt xe ({bookings.length})
           </Title>
         }
       />
@@ -94,7 +95,7 @@ export default function Bookings({ providerId }: { providerId: string }) {
     carId && (
       <Card my="3rem">
         <Text fs="italic" ta="center">
-          No Bookings Found
+          Không có đơn đặt xe
         </Text>
       </Card>
     )
@@ -108,13 +109,13 @@ const bookingActions: {
   icon: ReactNode;
 }[] = [
   {
-    display: "Approve",
+    display: "Duyệt",
     value: "approve",
     color: "green",
     icon: <IconProgressCheck size={14} />,
   },
   {
-    display: "Reject",
+    display: "Từ chối",
     value: "reject",
     color: "red",
     icon: <IconSquareRoundedXFilled size={14} />,
@@ -124,7 +125,7 @@ interface TableRowProps {
   bookingId: string;
   carId: string;
   providerId: string;
-  dateBooked: Date;
+  dateBooked: string;
   user: {
     name: string;
     firstName: string;
@@ -132,9 +133,9 @@ interface TableRowProps {
     avatar: string;
     image: any;
   };
-  pickupDate: Date;
-  returnDate: Date;
-  price: number;
+  pickupDate: string;
+  returnDate: string;
+  price: string;
   status: BookingStatus;
 }
 
@@ -171,17 +172,17 @@ export const TableRow = ({
 
   return (
     <Table.Tr>
-      <Table.Td>{formatDate(dateBooked)}</Table.Td>
+      <Table.Td>{dateBooked}</Table.Td>
       <Table.Td>
         <Flex align="center" gap={4}>
           <Avatar size="sm" radius="xl" src={user?.avatar || user?.image} />
           <Text>{user?.name}</Text>
         </Flex>
       </Table.Td>
-      <Table.Td>{formatDate(pickupDate)}</Table.Td>
-      <Table.Td>{formatDate(returnDate)}</Table.Td>
+      <Table.Td>{pickupDate}</Table.Td>
+      <Table.Td>{returnDate}</Table.Td>
       <Table.Td>
-        {ghCurrency} {price}
+        {price}
       </Table.Td>
       <Table.Td width="100px">
         {status === "pending" ? (
@@ -197,7 +198,7 @@ export const TableRow = ({
             </Menu.Target>
 
             <Menu.Dropdown>
-              <Menu.Label>Take Action</Menu.Label>
+              <Menu.Label>Thao tác</Menu.Label>
 
               {bookingActions.map((item) => (
                 <Menu.Item

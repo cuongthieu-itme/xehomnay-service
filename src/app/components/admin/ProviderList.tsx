@@ -94,7 +94,7 @@ export default function ProviderList({ allProviders }: ProviderListProps) {
   return (
     <>
       <h1 className="text-center font-semibold text-xl py-2">
-        All Providers List - ( {allProviders.length} )
+        Danh sách nhà cung cấp - ( {allProviders.length} )
       </h1>
 
       <Table.ScrollContainer minWidth={500} type="native">
@@ -107,12 +107,12 @@ export default function ProviderList({ allProviders }: ProviderListProps) {
         >
           <Table.Thead>
             <Table.Tr>
-              <Table.Th>S.N</Table.Th>
-              <Table.Th>Name</Table.Th>
-              <Table.Th>Phone</Table.Th>
+              <Table.Th>STT</Table.Th>
+              <Table.Th>Tên</Table.Th>
+              <Table.Th>Số điện thoại</Table.Th>
               <Table.Th>Email</Table.Th>
-              <Table.Th>Business Reg</Table.Th>
-              <Table.Th>Action</Table.Th>
+              <Table.Th>Đăng ký kinh doanh</Table.Th>
+              <Table.Th>Thao tác</Table.Th>
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>{rows}</Table.Tbody>
@@ -129,19 +129,19 @@ export default function ProviderList({ allProviders }: ProviderListProps) {
         {selectedProvider ? (
           <div className="p-4">
             <p>
-              <strong>Company Name: </strong>
+              <strong>Tên: </strong>
               {selectedProvider.companyName}
             </p>
             <p>
-              <strong>Active: </strong>
-              {selectedProvider.active ? "Yes" : "No"}
+              <strong>Trạng thái: </strong>
+              {selectedProvider.active ? "Có" : "Không"}
             </p>
             <p>
-              <strong>Contact Name: </strong>
+              <strong>Tên liên hệ: </strong>
               {selectedProvider.contactName}
             </p>
             <p>
-              <strong>Contact Phone: </strong>
+              <strong>Số điện thoại: </strong>
               {selectedProvider.contactPhone}
             </p>
             <p>
@@ -149,28 +149,28 @@ export default function ProviderList({ allProviders }: ProviderListProps) {
               {selectedProvider.email}
             </p>
             <p>
-              <strong>Business Reg: </strong>
+              <strong>Đăng ký kinh doanh: </strong>
               {selectedProvider.businessReg}
             </p>
             <p>
-              <strong>Country: </strong>
+              <strong>Quốc gia: </strong>
               {selectedProvider.country.name}
             </p>
             <p>
-              <strong>Region: </strong>
+              <strong>Khu vực: </strong>
               {selectedProvider.region.name}
             </p>
             <p>
-              <strong>City: </strong>
+              <strong>Thành phố: </strong>
               {selectedProvider.city}
             </p>
             <p>
-              <strong>Street: </strong>
+              <strong>Địa chỉ: </strong>
               {selectedProvider.street}
             </p>
           </div>
         ) : (
-          <p className="text-center">Loading...</p>
+          <p className="text-center">Đang tải...</p>
         )}
       </Modal>
     </>

@@ -77,7 +77,7 @@ export default function CompanyDetails({
   return (
     <Flex gap="4rem">
       <Box style={{ flexGrow: 1 }}>
-        <Title className="text-center">Create New Provider Account</Title>
+        <Title className="text-center">Tạo tài khoản nhà cung cấp mới</Title>
         <ProfilePhoto
           profileUrl={companyDetails.avatar || companyDetails.image}
           updateProfile={updateAvatar}
@@ -86,33 +86,33 @@ export default function CompanyDetails({
         <Group grow>
           <Box my="sm">
             <Input.Label htmlFor="companyName">
-              Company Name
+              Tên công ty
               <span style={{ color: "red" }}>*</span>
             </Input.Label>
             <Input
               type="text"
               id="companyName"
               required
-              placeholder="Company Name"
+              placeholder="Tên công ty"
               value={companyDetails.companyName}
               onChange={(e) =>
                 updateDetails("companyName", e.currentTarget.value)
               }
             />
             {isNext && !companyDetails.companyName && (
-              <Input.Error>Company Name is Require</Input.Error>
+              <Input.Error>Tên công ty là bắt buộc</Input.Error>
             )}
           </Box>
           <Box my="sm">
             <Input.Label htmlFor="businessRegistrationNumber">
-              Business Registration Number
+              Số đăng ký kinh doanh
               <span style={{ color: "red" }}>*</span>
             </Input.Label>
             <Input
               type="text"
               id="businessRegistrationNumber"
               required
-              placeholder="Business Registration Number"
+              placeholder="Số đăng ký kinh doanh"
               value={
                 companyDetails.businessRegistrationNumber
                   ? companyDetails.businessRegistrationNumber
@@ -126,54 +126,54 @@ export default function CompanyDetails({
               }
             />
             {isNext && !companyDetails.businessRegistrationNumber && (
-              <Input.Error>Business Registration Number is Require</Input.Error>
+              <Input.Error>Số đăng ký kinh doanh là bắt buộc</Input.Error>
             )}
           </Box>
         </Group>
         <Group grow>
           <Box my="sm">
             <Input.Label htmlFor="contactName">
-              Contact Name
+              Tên liên hệ
               <span style={{ color: "red" }}>*</span>
             </Input.Label>
             <Input
               type="text"
               id="contactName"
               required
-              placeholder="Contact Name"
+              placeholder="Tên liên hệ"
               value={companyDetails.contactName}
               onChange={(e) =>
                 updateDetails("contactName", e.currentTarget.value)
               }
             />
             {isNext && !companyDetails.contactName && (
-              <Input.Error>Contact Name is Require</Input.Error>
+              <Input.Error>Tên liên hệ là bắt buộc</Input.Error>
             )}
           </Box>
           <Box my="sm">
             <Input.Label htmlFor="phone">
-              Phone
+              Số điện thoại
               <span style={{ color: "red" }}>*</span>
             </Input.Label>
             <Input
               type="text"
               id="phone"
               required
-              placeholder="Phone"
+              placeholder="Số điện thoại"
               value={companyDetails.phone || companyDetails.contactPhone}
               onChange={(e) => updateDetails("phone", e.currentTarget.value)}
             />
             {isNext && !companyDetails.phone && (
-              <Input.Error>Phone is Require</Input.Error>
+              <Input.Error>Số điện thoại là bắt buộc</Input.Error>
             )}
           </Box>
         </Group>
         <Box my="lg">
-          <Divider my="xs" label={<Title order={4}>Company Location</Title>} />
+          <Divider my="xs" label={<Title order={4}>Địa chỉ</Title>} />
           <Group grow>
             <Box my="sm">
               <Input.Label>
-                Country
+                Quốc gia
                 <span style={{ color: "red" }}>*</span>
               </Input.Label>
               <SelectCountry
@@ -194,7 +194,7 @@ export default function CompanyDetails({
             </Box>
             <Box my="sm">
               <Input.Label>
-                Region
+                Khu vực
                 <span style={{ color: "red" }}>*</span>
               </Input.Label>
               <SelectRegion
@@ -223,28 +223,28 @@ export default function CompanyDetails({
           <Group grow align="flex-start">
             <Box my="sm">
               <Input.Label htmlFor="city">
-                City
+                Thành phố
                 <span style={{ color: "red" }}>*</span>
               </Input.Label>
               <Input
                 type="text"
                 id="city"
-                placeholder="Dhaka"
+                placeholder="Thành phố"
                 value={companyDetails.city || companyDetails.cityName}
                 onChange={(event) =>
                   updateDetails("city", event.currentTarget.value)
                 }
               />
               {isNext && !companyDetails.city && (
-                <Input.Error>City is required</Input.Error>
+                <Input.Error>Thành phố là bắt buộc</Input.Error>
               )}
             </Box>
             <Box my="sm">
-              <Input.Label htmlFor="street">Street</Input.Label>
+              <Input.Label htmlFor="street">Địa chỉ</Input.Label>
               <Input
                 type="text"
                 id="street"
-                placeholder="Bogura"
+                placeholder="Địa chỉ"
                 value={companyDetails.street}
                 onChange={(event) =>
                   updateDetails("street", event.currentTarget.value)
@@ -262,7 +262,7 @@ export default function CompanyDetails({
               radius="xl"
               size="md"
             >
-              <Text mr="xs">Next</Text> <ArrowRight size={15} />
+              <Text mr="xs">Tiếp tục</Text> <ArrowRight size={15} />
             </Button>
           </Flex>
         )}

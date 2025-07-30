@@ -27,6 +27,7 @@ import toast from "react-hot-toast";
 import SelectTime from "../../home/filterFrom/SelectTime";
 import DatePicker from "../DatePicker";
 import classes from "./styles.module.css";
+import { convertPrice } from "@/lib/price";
 
 export default function BookingDetails({ carDetails, user }: any) {
   const {
@@ -86,7 +87,7 @@ export default function BookingDetails({ carDetails, user }: any) {
       toast.error(res.error);
       return;
     }
-    toast.success("Booking Created Successfully");
+    toast.success("Thuê xe thành công");
     setTriggered(false);
     refresh();
   };
@@ -130,7 +131,7 @@ export default function BookingDetails({ carDetails, user }: any) {
       <Toast />
 
       <Title order={4} mb="md" c="gray.6">
-        Booking Details
+        Chi tiết đặt xe
       </Title>
       <Flex gap="sm" direction={{ base: "column", sm: "row" }}>
         <Box>
@@ -147,37 +148,37 @@ export default function BookingDetails({ carDetails, user }: any) {
 
       <Box my="md">
         <Title order={5} my="xs" className="text-muted">
-          Address/Location
+          Địa chỉ/Địa điểm
         </Title>
         <Text size="sm" className="text-default">
-          Country:
+          Quốc gia:
           <Text c="gray.6" component="span" mx="xs">
             {user?.userProfile?.country?.name || (
-              <Link href="/my-account/profile">Add</Link>
+              <Link href="/my-account/profile">Thêm</Link>
             )}
           </Text>
         </Text>
         <Text my="sm" size="sm" className="text-default">
-          Region:
+          Tỉnh/Thành phố:
           <Text c="gray.6" component="span" mx="xs">
             {user?.userProfile?.region?.name || (
-              <Link href="/my-account/profile">Add</Link>
+              <Link href="/my-account/profile">Thêm</Link>
             )}
           </Text>
         </Text>
         <Text my="sm" size="sm" className="text-default">
-          City:
+          Thành phố:
           <Text c="gray.6" component="span" mx="xs">
             {user?.userProfile?.city || (
-              <Link href="/my-account/profile">Add</Link>
+              <Link href="/my-account/profile">Thêm</Link>
             )}
           </Text>
         </Text>
         <Text size="sm" className="text-default">
-          Street:
+          Đường phố:
           <Text c="gray.6" component="span" mx="xs">
             {user?.userProfile?.state || (
-              <Link href="/my-account/profile">Add</Link>
+              <Link href="/my-account/profile">Thêm</Link>
             )}
           </Text>
         </Text>
@@ -193,31 +194,31 @@ export default function BookingDetails({ carDetails, user }: any) {
       </Box>
 
       <Title order={5} my="xs" className="text-muted">
-        Rental Info
+        Thông tin thuê xe
       </Title>
       <Box className={classes.rentalInfo} py="xs" px="md">
         <Flex justify="space-between">
-          <Text className="text-default">Minimum Rental (Hours/Days)</Text>
+          <Text className="text-default">Thời gian thuê tối thiểu (Giờ/Ngày)</Text>
           <Text className="text-default">{carDetails.minimumRent}</Text>
         </Flex>
 
         {carDetails.maximumRent && (
           <Flex justify="space-between" py="sm">
-            <Text className="text-default">Maximum Rental (Hours/Days)</Text>
+            <Text className="text-default">Thời gian thuê tối đa (Giờ/Ngày)</Text>
             <Text className="text-default">{carDetails.maximumRent}</Text>
           </Flex>
         )}
 
         <Flex justify="space-between">
-          <Text className="text-default">Price Per Hours</Text>
+          <Text className="text-default">Giá mỗi giờ</Text>
           <Text className="text-default">
-            {ghCurrency} {carDetails.pricePerHour}
+            {convertPrice(carDetails.pricePerHour)}
           </Text>
         </Flex>
         <Flex justify="space-between">
-          <Text className="text-default">Price Per Day</Text>
+          <Text className="text-default">Giá mỗi ngày</Text>
           <Text className="text-default">
-            {ghCurrency} {carDetails.pricePerDay}
+            {convertPrice(carDetails.pricePerDay)}
           </Text>
         </Flex>
 
@@ -225,14 +226,14 @@ export default function BookingDetails({ carDetails, user }: any) {
 
         <Radio.Group value={value} onChange={setValue} withAsterisk>
           <Group pb="sm">
-            <Radio value="h" label="Hours" />
-            <Radio value="d" label="Days" />
+            <Radio value="h" label="Giờ" />
+            <Radio value="d" label="Ngày" />
           </Group>
         </Radio.Group>
 
         <Box>
           <Text className="text-default">
-            Number of {value === "h" ? "Hours" : "Days"}
+            Số lượng {value === "h" ? "Giờ" : "Ngày"}
           </Text>
           {value === "h" ? (
             <>
@@ -258,12 +259,12 @@ export default function BookingDetails({ carDetails, user }: any) {
         <Divider my="md" />
 
         <Flex justify="space-between">
-          <Text className="text-default">Total Price</Text>
+          <Text className="text-default">Tổng tiền</Text>
           {value === "h" ? (
             <>
               {numOfHours && (
                 <Text fw="bold" className="text-default">
-                  {ghCurrency} {numOfHours * carDetails.pricePerHour}
+                  {convertPrice(numOfHours * carDetails.pricePerHour)}
                 </Text>
               )}
             </>
@@ -271,7 +272,7 @@ export default function BookingDetails({ carDetails, user }: any) {
             <>
               {numOfDays && (
                 <Text fw="bold" className="text-default">
-                  {ghCurrency} {numOfDays * carDetails.pricePerDay}
+                  {convertPrice(numOfDays * carDetails.pricePerDay)}
                 </Text>
               )}
             </>
@@ -287,7 +288,7 @@ export default function BookingDetails({ carDetails, user }: any) {
         disabled={carDetails.status !== "available"}
         onClick={handleBookNow}
       >
-        {triggered ? <Loader size={22} /> : "Book Now"}
+        {triggered ? <Loader size={22} /> : "Thuê xe ngay"}
       </Button>
 
       {/* review form  */}
@@ -298,10 +299,10 @@ export default function BookingDetails({ carDetails, user }: any) {
           <form onSubmit={handleReview} className="w-full">
             <div>
               <Title order={5} my="xs">
-                Rate this car
+                Đánh giá xe
               </Title>
               <Text size="sm" c="gray.6">
-                How was your experience with this car?
+                Bạn có trải nghiệm với xe này không?
               </Text>
             </div>
             <Rating
@@ -313,16 +314,16 @@ export default function BookingDetails({ carDetails, user }: any) {
 
             <div>
               <Title order={5} my="xs">
-                Write a review
+                Viết đánh giá
               </Title>
               <Text size="sm" c="gray.6">
-                Share your experience with others
+                Chia sẻ trải nghiệm của bạn với người khác
               </Text>
             </div>
             <Textarea
               resize="vertical"
               name="comment"
-              placeholder="Your comment"
+              placeholder="Viết đánh giá"
               value={comment}
               onChange={(e) => setComment(e.target.value)}
             />
@@ -334,18 +335,18 @@ export default function BookingDetails({ carDetails, user }: any) {
               // disabled={carDetails.status !== "available"}
               gradient={primaryGradient}
             >
-              {reviewLoading ? <Loader size={22} /> : "Submit Review"}
+              {reviewLoading ? <Loader size={22} /> : "Đánh giá"}
             </Button>
           </form>
         </>
       ) : (
         <>
           <Text c="red" size="sm">
-            Please login to review this car
+            Vui lòng đăng nhập để đánh giá xe
           </Text>
           <Link href="/login">
             <Button w="100%" variant="gradient" gradient={primaryGradient}>
-              Login
+              Đăng nhập
             </Button>
           </Link>
         </>

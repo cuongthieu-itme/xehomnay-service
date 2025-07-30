@@ -13,6 +13,7 @@ import { IconManualGearbox, IconUsers } from "@tabler/icons-react";
 import { CarIcon, FuelIcon } from "lucide-react";
 import Link from "next/link";
 import { StatusRenderer } from "../StatusRenderer";
+import { convertPrice } from "@/lib/price";
 
 export const CarCard = ({ car }: any) => {
   return (
@@ -52,7 +53,7 @@ export const CarCard = ({ car }: any) => {
             mb="xs"
             disabled={car.status !== "available"}
           >
-            Rent now
+            Thuê ngay
           </Button>
         </Box>
       </Flex>
@@ -87,10 +88,9 @@ export const CarCard = ({ car }: any) => {
 
         <Flex align="flex-end">
           <Text fw="bold" size="lg">
-            {ghCurrencySymbol}
-            {car?.pricePerDay}
+            {convertPrice(car?.pricePerDay)}
           </Text>
-          <Text size="xs">/day</Text>
+          <Text size="xs">/ngày</Text>
         </Flex>
       </Flex>
     </Card>

@@ -33,14 +33,14 @@ export const AccountLayout = ({ children }: { children: React.ReactNode }) => {
           <Card withBorder mah={300} w="300px" style={{ zIndex: 1 }}>
             <Box h="60px" bg="orange.6">
               <Title order={4} ta="center" py={16} c="white">
-                My Account
+                Tài khoản của tôi
               </Title>
             </Box>
             <Box>
               <NavLink
                 component={Link}
                 href="/my-account/profile"
-                label={<Text c="gray.6">Profile</Text>}
+                label={<Text c="gray.6">Thông tin</Text>}
                 leftSection={<CgProfile size="1.2rem" />}
                 py="md"
                 color="gray.6"
@@ -49,7 +49,7 @@ export const AccountLayout = ({ children }: { children: React.ReactNode }) => {
               <NavLink
                 component={Link}
                 href="/my-account/bookings"
-                label={<Text c="gray.6">Bookings</Text>}
+                label={<Text c="gray.6">Đặt xe</Text>}
                 leftSection={<IoCarSportSharp size="1.2rem" />}
                 py="md"
               />

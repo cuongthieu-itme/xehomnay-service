@@ -97,7 +97,7 @@ export default function LoginDetails({
         />
         <Toast />
         <Box style={{ flexGrow: 1 }}>
-          <Title mt="2rem">Login Details</Title>
+          <Title mt="2rem">Chi tiết đăng nhập</Title>
           <Space mt="lg" />
           <form onSubmit={handleCreateProvider}>
             <Group grow>
@@ -110,11 +110,11 @@ export default function LoginDetails({
                   onChange={(e) =>
                     updateDetails("email", e.currentTarget.value)
                   }
-                  placeholder="Enter your email"
+                  placeholder="Email"
                 />
                 {isCreate && !companyDetails.email && (
                   <Input.Error>
-                    Email is required to create a provider account
+                    Email là bắt buộc
                   </Input.Error>
                 )}
               </Box>
@@ -122,36 +122,36 @@ export default function LoginDetails({
             <Space mt="lg" />
             <Group grow>
               <Box>
-                <Input.Label htmlFor="password">Password</Input.Label>
+                <Input.Label htmlFor="password">Mật khẩu</Input.Label>
                 <PasswordInput
                   id="password"
                   required
                   value={password}
                   onChange={(e) => setPassword(e.currentTarget.value)}
-                  placeholder="Enter your password"
+                  placeholder="Mật khẩu"
                   type="password"
                 />
                 {isCreate && !password && (
                   <Input.Error>
-                    Password is required to create a provider account
+                    Mật khẩu là bắt buộc
                   </Input.Error>
                 )}
               </Box>
               <Box>
                 <Input.Label htmlFor="confirmPassword">
-                  Confirm Password
+                  Xác nhận mật khẩu
                 </Input.Label>
                 <PasswordInput
                   id="confirmPassword"
                   required
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.currentTarget.value)}
-                  placeholder="Confirm your password"
+                  placeholder="Xác nhận mật khẩu"
                   type="password"
                 />
                 {isCreate && !confirmPassword && (
                   <Input.Error>
-                    Confirm Password is required to create a provider account
+                    Xác nhận mật khẩu là bắt buộc
                   </Input.Error>
                 )}
               </Box>
@@ -177,7 +177,7 @@ export default function LoginDetails({
                 my="sm"
               >
                 <ArrowLeft size={15} />
-                <Text ml="xs">Prev</Text>
+                <Text ml="xs">Quay lại</Text>
               </Button>
 
               <Button
@@ -188,7 +188,7 @@ export default function LoginDetails({
                 size="md"
                 my="sm"
               >
-                <Text ml="xs">Create Account</Text>
+                <Text ml="xs">Tạo tài khoản</Text>
               </Button>
             </Flex>
           </form>

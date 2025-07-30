@@ -1,7 +1,8 @@
 "use client";
 
-import { ghCurrency } from "@/const";
-import { formatDate, formatTime } from "@/lib/utils";
+import { convertDate } from "@/lib/date";
+import { convertPrice } from "@/lib/price";
+import { formatTime } from "@/lib/utils";
 import {
   Avatar,
   Box,
@@ -23,13 +24,13 @@ interface BookingsProps {
 }
 const header = (
   <Table.Tr>
-    <Table.Th>Date Booked</Table.Th>
-    <Table.Th>Time</Table.Th>
-    <Table.Th>Car</Table.Th>
-    <Table.Th>Pickup Date</Table.Th>
-    <Table.Th>Return Date</Table.Th>
-    <Table.Th>Price</Table.Th>
-    <Table.Th>Status</Table.Th>
+    <Table.Th>Ngày thuê</Table.Th>
+    <Table.Th>Thời gian thuê</Table.Th>
+    <Table.Th>Xe</Table.Th>
+    <Table.Th>Ngày lấy xe</Table.Th>
+    <Table.Th>Ngày trả xe</Table.Th>
+    <Table.Th>Giá</Table.Th>
+    <Table.Th>Trạng thái</Table.Th>
   </Table.Tr>
 );
 export default function Bookings({ userId, bookings }: BookingsProps) {
@@ -58,7 +59,7 @@ export default function Bookings({ userId, bookings }: BookingsProps) {
         labelPosition="left"
         label={
           <Title order={1} className="text-default" mb="lg">
-            My Bookings ({bookings.length})
+            Danh sách đơn đặt xe ({bookings.length})
           </Title>
         }
       />
@@ -73,7 +74,7 @@ export default function Bookings({ userId, bookings }: BookingsProps) {
   ) : (
     <Card my="3rem">
       <Text fs="italic" ta="center">
-        No Bookings Found
+        Không có đơn đặt xe
       </Text>
     </Card>
   );
@@ -103,7 +104,7 @@ export const TableRow = ({
 }: TableRowProps) => {
   return (
     <Table.Tr>
-      <Table.Td>{formatDate(dateBooked)}</Table.Td>
+      <Table.Td>{convertDate(dateBooked)}</Table.Td>
       <Table.Td>{formatTime(time)}</Table.Td>
       <Table.Td>
         <Flex align="center" gap={4}>
@@ -114,10 +115,10 @@ export const TableRow = ({
           </Text>
         </Flex>
       </Table.Td>
-      <Table.Td>{formatDate(pickupDate)}</Table.Td>
-      <Table.Td>{formatDate(returnDate)}</Table.Td>
+      <Table.Td>{convertDate(pickupDate)}</Table.Td>
+      <Table.Td>{convertDate(returnDate)}</Table.Td>
       <Table.Td>
-        {ghCurrency} {price} ({hOrday})
+       {convertPrice(price)} ({hOrday})
       </Table.Td>
       <Table.Td width="100px">
         <StatusRenderer status={status} />

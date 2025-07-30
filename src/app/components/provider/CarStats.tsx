@@ -18,7 +18,7 @@ export function CarStats({ dataCar }: any) {
               {stat.label}
             </Text>
             <div>
-              <Text className={classes.label}>Total</Text>
+              <Text className={classes.label}>Tổng số xe</Text>
               <Text fz="sm" className={classes.value}>
                 {stat.value}
               </Text>

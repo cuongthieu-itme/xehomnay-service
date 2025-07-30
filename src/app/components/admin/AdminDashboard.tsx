@@ -42,19 +42,19 @@ const data = [
   {
     icon: <IconDashboard size="1rem" />,
     color: "blue",
-    label: "Dashboard",
+    label: "Tổng quan",
     endpoint: "/dashboard",
   },
   {
     icon: <IconUsers size="1rem" />,
     color: "violet",
-    label: "All Providers",
+    label: "Nhà cung cấp",
     endpoint: "/dashboard/all-provider",
   },
   {
     icon: <Map size="1rem" />,
     color: "purple",
-    label: "Country",
+    label: "Quốc gia",
     endpoint: "/dashboard/all-country",
   },
 
