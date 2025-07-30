@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import { ghCurrencySymbol } from "@/const";
 import Link from "next/link";
 import "slick-carousel/slick/slick-theme.css";
+import { convertPrice } from "@/lib/price";
 const SlickSlider = ({ cars }: any) => {
   let settings = {
     dots: true,
@@ -57,8 +58,7 @@ const SlickSlider = ({ cars }: any) => {
             <div className="block w-full h-[420px] bg-white ml-auto mr-auto border border-gray-300 rounded-[20px] full_card">
               <div className="w-[40%] bg-[#cc0505] h-[25px] flex justify-center items-center price_border">
                 <p className="text-white text-sm">
-                  PricePerDay {ghCurrencySymbol}
-                  {car?.pricePerDay}
+                  {convertPrice(car?.pricePerDay)}/Ngày
                 </p>
               </div>
               <div className="ml-auto mr-auto pt-2 w-full max-w-[300px]">
@@ -74,29 +74,29 @@ const SlickSlider = ({ cars }: any) => {
                   {car?.transmission}
                 </div>
                 <div className="flex justify-between text-black text-sm pt-2">
-                  <div>BodyType</div>
+                  <div>Kiểu dáng</div>
                   <div>{car?.bodyType}</div>
                 </div>
                 <div className="bg-[#e6e6e6] w-full h-[1px]"></div>
                 <div className="flex justify-between text-black text-sm pt-2">
-                  <div>Car Color</div>
+                  <div>Màu xe</div>
                   <div>{car?.color}</div>
                 </div>
                 <div className="bg-[#e6e6e6] w-full h-[1px]"></div>
                 <div className="flex justify-between text-black text-sm pt-2">
-                  <div>BagsCapacity</div>
+                  <div>Sức chứa hành lý</div>
                   <div>{car?.bagsCapacity}</div>
                 </div>
                 <div className="bg-[#e6e6e6] w-full h-[1px]"></div>
                 <div className="flex justify-between text-black text-xs pt-2">
-                  <div>Ac-Available</div>
-                  <div>{car?.acAvailable === true ? "Yes" : "No"}</div>
+                  <div>Điều hòa</div>
+                  <div>{car?.acAvailable === true ? "Có" : "Không"}</div>
                 </div>
 
                 <div className="pt-5 hidden details_btn">
                   <Link href={`cars/${car?.slug}`} className="w-full">
                     <button className="bg-white text-[#cc0505] border border-red-600 rounded-[10px] flex justify-center items-center text-sm cursor-pointer w-full font-semibold h-[40px]">
-                      View Details
+                      Xem chi tiết
                     </button>
                   </Link>
                 </div>
