@@ -26,7 +26,7 @@ export default function TableRow({ car, providerDetails }: TableRowProps) {
     if (error) {
       toast.error("Failed to delete car! Try again");
     } else {
-      toast.success("Car deleted successfully");
+      toast.success("Xóa xe thành công");
       refresh();
     }
   };

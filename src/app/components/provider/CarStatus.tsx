@@ -64,7 +64,7 @@ export function CarStatus({ status, id }: TableActionsProps) {
 
       if (statusValue?.data) {
         refresh();
-        toast.success("Status updated successfully");
+        toast.success("Cập nhật trạng thái thành công");
       }
 
       if (statusValue?.error) {

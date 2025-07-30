@@ -75,7 +75,7 @@ const CarReserveFrom = () => {
       router.push(`/cars?${params}`);
     } else {
       setIsLoading(false);
-      toast.error("Please fill all the fields");
+      toast.error("Vui lòng điền đầy đủ các trường");
     }
   };
   useEffect(() => {

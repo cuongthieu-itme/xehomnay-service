@@ -16,7 +16,7 @@ export default function SelectCountry({ value, onChange }: Props) {
       className="custom"
       placeholder="Quốc gia"
       searchable
-      nothingFoundMessage="No country found"
+      nothingFoundMessage="Không tìm thấy quốc gia"
       data={
         countries
           ? countries?.map((country: CountryGetAllType) => ({

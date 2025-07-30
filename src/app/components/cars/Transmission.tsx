@@ -13,7 +13,7 @@ export const Transmission = () => {
         value={state.transmission}
         onChange={(value) => updateFilterProperty("transmission", value)}
         data={[
-          { label: "Any", value: "any" },
+          { label: "Bất kỳ", value: "any" },
           { label: "Số sàn", value: "manual" },
           { label: "Số tự động", value: "automatic" },
         ]}

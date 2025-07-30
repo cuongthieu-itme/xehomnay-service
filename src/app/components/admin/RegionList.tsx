@@ -17,7 +17,7 @@ export default function RegionList({ regions }: any) {
       toast.error(res.error);
     } else {
       refresh();
-      toast.success(res.message || "Status updated successfully");
+      toast.success(res.message || "Cập nhật trạng thái thành công");
     }
   };
 
@@ -27,7 +27,7 @@ export default function RegionList({ regions }: any) {
       toast.error(res.error);
     } else {
       refresh();
-      toast.success(res.message || "Region deleted successfully");
+      toast.success(res.message || "Xóa khu vực thành công");
     }
   };
 

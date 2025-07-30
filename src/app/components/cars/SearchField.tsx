@@ -73,7 +73,7 @@ export const SearchEngine = () => {
       const params = `country=${selectedCountry?.id}&region=${selectedRegion?.id}&carMake=${carMake?.value}&pickupDate=${picupDate}&returnDate=${returnDate}&time=${time}`;
       router.push(`/cars?${params}`);
     } else {
-      toast.error("Please fill all fields");
+      toast.error("Vui lòng điền đầy đủ các trường");
     }
   };
   useEffect(() => {
@@ -183,7 +183,7 @@ export const SearchEngine = () => {
               setTime("");
             }}
           >
-            Reset Search
+            Đặt lại tìm kiếm
           </Button>
         )}
       </Flex>

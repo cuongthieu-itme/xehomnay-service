@@ -19,7 +19,7 @@ const VerifyEmailForm = () => {
     }
 
     if (!token) {
-      setError("No token provided");
+      setError("Không có token được cung cấp");
       return;
     }
 
@@ -33,7 +33,7 @@ const VerifyEmailForm = () => {
         }
       })
       .catch((error: any) => {
-        setError("An unexpected error occurred");
+        setError("Đã xảy ra lỗi không mong muốn");
       });
   }, [token, success, error]);
 
@@ -43,10 +43,10 @@ const VerifyEmailForm = () => {
 
   return (
     <CardWrapper
-      headerLabel="Confirming your email address"
+      headerLabel="Xác nhận địa chỉ email của bạn"
       title="Confirming now..."
       backButtonHref="/login"
-      backButtonLabel="Back to login"
+      backButtonLabel="Quay lại đăng nhập"
     >
       <div className="flex items-center w-full justify-center">
         {!success && !error && <p>Please Wait</p>}

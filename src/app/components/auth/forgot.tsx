@@ -23,7 +23,7 @@ export default function Forgot() {
       const formData = new FormData(e.currentTarget);
       const email = formData.get("email");
       if (!email) {
-        setError("Email is required");
+        setError("Email là bắt buộc");
         return;
       }
       const res = await forgotPassword(email as string);
@@ -35,7 +35,7 @@ export default function Forgot() {
         setSuccess(res?.success || null);
       }
     } catch (error) {
-      setError("Something went wrong");
+      setError("Đã xảy ra lỗi");
     } finally {
       setLoading(false);
     }
@@ -53,7 +53,7 @@ export default function Forgot() {
       const formData = new FormData(e.currentTarget);
       const otp = formData.get("otp");
       if (!otp) {
-        setError("Otp is required");
+        setError("Mã OTP là bắt buộc");
         return;
       }
       const otpValue = otp?.toString() || "";
@@ -73,7 +73,7 @@ export default function Forgot() {
         }
       }
     } catch (error) {
-      setError("Something went wrong");
+      setError("Đã xảy ra lỗi");
     } finally {
       setLoading(false);
     }
@@ -89,7 +89,7 @@ export default function Forgot() {
         {success ? (
           <>
             <p className="text-gray-500 font-inter text-sm text-center">
-              Otp has been sent to your email address.
+              Mã OTP đã được gửi đến email của bạn.
             </p>
 
             <form className="space-y-4" onSubmit={handleVerify}>
@@ -97,7 +97,7 @@ export default function Forgot() {
                 <TextInput
                   name="otp"
                   label="Otp"
-                  placeholder="Enter your otp"
+                  placeholder="Nhập mã OTP của bạn"
                   type="text"
                   // value={}
                   onChange={(e) => {}}
@@ -119,8 +119,7 @@ export default function Forgot() {
         ) : (
           <>
             <p className="text-gray-500 font-inter text-sm text-center">
-              Enter your email address and we will send you a link to reset your
-              password.
+              Nhập địa chỉ email của bạn và chúng tôi sẽ gửi cho bạn một liên kết để đặt lại mật khẩu.
             </p>
 
             <form className="space-y-4" onSubmit={handleSubmit}>
@@ -128,7 +127,7 @@ export default function Forgot() {
                 <TextInput
                   name="email"
                   label="Email"
-                  placeholder="Enter your email"
+                  placeholder="Nhập email của bạn"
                   type="email"
                   // value={}
                   onChange={(e) => {}}

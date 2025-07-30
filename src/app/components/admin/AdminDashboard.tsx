@@ -87,7 +87,7 @@ export default function AdminDashboard({
   const { refresh } = useRouter();
   const handleSignOut = async () => {
     await signOut({ redirect: false });
-    toast.success("Logged out successfully");
+    toast.success("Đăng xuất thành công");
     refresh();
   };
   return (
@@ -158,7 +158,7 @@ export default function AdminDashboard({
 
           <AppShell.Section>
             <MainLink
-              label="Account Settings"
+              label="Cài đặt tài khoản"
               color="gray"
               icon={<IconUser size="1rem" />}
               link={`/admin/dashboard/my-account`}

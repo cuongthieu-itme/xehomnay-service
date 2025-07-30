@@ -51,10 +51,10 @@ export default function MyAccount({ user, providerDetails }: any) {
         },
       });
       setIsUpdating(false);
-      toast.success("Profile updated successfully");
+      toast.success("Cập nhật hồ sơ thành công");
       refresh();
     } else {
-      toast.error("Failed to update profile");
+      toast.error("Cập nhật hồ sơ thất bại");
       setIsUpdating(false);
     }
   };
@@ -86,7 +86,7 @@ export default function MyAccount({ user, providerDetails }: any) {
           my="sm"
           disabled={isUpdating}
         >
-          {isUpdating ? "Updating..." : "Update Profile"}
+          {isUpdating ? "Đang cập nhật..." : "Cập nhật hồ sơ"}
         </Button>
       </Flex>
 

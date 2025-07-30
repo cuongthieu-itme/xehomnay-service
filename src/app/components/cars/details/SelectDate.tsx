@@ -13,7 +13,7 @@ export function SelectDate({ label, value, onChange, minDate }: Props) {
       value={value}
       onChange={onChange}
       label={label}
-      placeholder="Select Date"
+      placeholder="Chọn ngày"
       width="100%"
       minDate={minDate}
     />

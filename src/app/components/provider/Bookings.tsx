@@ -163,10 +163,10 @@ export const TableRow = ({
       setIsUpdating(false);
       refresh();
       console.log("res", res);
-      toast.success("Booking status updated successfully");
+      toast.success("Cập nhật trạng thái đặt xe thành công");
     } else {
       setIsUpdating(false);
-      toast.error("Failed to update booking status");
+      toast.error("Cập nhật trạng thái đặt xe thất bại");
     }
   };
 

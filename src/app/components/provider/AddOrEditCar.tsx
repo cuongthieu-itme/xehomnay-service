@@ -104,7 +104,7 @@ export function AddOrEditCar({
         } else {
           refresh();
           setIsSubmitting(false);
-          toast.success("Car added successfully");
+          toast.success("Thêm xe thành công");
           resetState();
           close();
         }
@@ -121,7 +121,7 @@ export function AddOrEditCar({
         } else {
           refresh();
           setIsSubmitting(false);
-          toast.success("Car updated successfully");
+          toast.success("Cập nhật xe thành công");
           resetState();
           close();
         }
@@ -392,7 +392,7 @@ const CarImage = ({
     <CloseButton
       variant="filled"
       onClick={() => removeImage(imageurl?.imageUrl)}
-      aria-label="Remove image"
+      aria-label="Xóa hình ảnh"
       className="text-red-600 hover:bg-red-500 hover:text-white"
       style={{
         position: "absolute",

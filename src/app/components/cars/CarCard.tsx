@@ -60,25 +60,25 @@ export const CarCard = ({ car }: any) => {
       <Divider />
       <Flex align="center" justify="space-between">
         <Flex align="center" gap={{ base: 4, md: 16 }}>
-          <Flex my={8} align="center" title="seating capacity">
+          <Flex my={8} align="center" title="Số chỗ ngồi">
             <IconUsers size="16px" color="gray" />
             <Text c="gray.6" size="sm" mx={4}>
               {car?.seatsCapacity}
             </Text>
           </Flex>
-          <Flex my={8} align="center" title="transmission">
+          <Flex my={8} align="center" title="Loại nhiên liệu">
             <IconManualGearbox size="16px" color="gray" />
             <Text c="gray.6" size="sm" mx={4} className="capitalize">
               {car?.transmission}
             </Text>
           </Flex>
-          <Flex my={8} align="center" title="Fuel type">
+          <Flex my={8} align="center" title="Loại nhiên liệu">
             <FuelIcon size="16px" color="gray" />
             <Text c="gray.6" size="sm" mx={4} className="capitalize">
               {car?.fuelType}
             </Text>
           </Flex>
-          <Flex my={8} align="center" title="Body type">
+          <Flex my={8} align="center" title="Kiểu thân xe">
             <CarIcon size="16px" color="gray" />
             <Text c="gray.6" size="sm" mx={4} className="capitalize">
               {car?.bodyType}

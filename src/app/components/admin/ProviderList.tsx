@@ -31,7 +31,7 @@ export default function ProviderList({ allProviders }: ProviderListProps) {
       toast.error(res.error);
     } else {
       refresh();
-      toast.success(res.message || "Status updated successfully");
+      toast.success(res.message || "Cập nhật trạng thái thành công");
     }
   };
 
@@ -46,7 +46,7 @@ export default function ProviderList({ allProviders }: ProviderListProps) {
       toast.error(res.error);
     } else {
       refresh();
-      toast.success(res.message || "Provider deleted successfully");
+      toast.success(res.message || "Xóa nhà cung cấp thành công");
     }
   };
 
@@ -123,7 +123,7 @@ export default function ProviderList({ allProviders }: ProviderListProps) {
       <Modal
         opened={opened}
         onClose={close}
-        title="Provider Details View"
+        title="Xem chi tiết nhà cung cấp"
         centered
       >
         {selectedProvider ? (

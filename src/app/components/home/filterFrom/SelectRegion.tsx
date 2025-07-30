@@ -29,7 +29,7 @@ export default function SelectRegion({
           : []
       }
       searchable
-      nothingFoundMessage="No city found"
+      nothingFoundMessage="Không tìm thấy thành phố"
       value={value}
       onChange={(value) => onChange && onChange(value || "")}
       filter={optionsFilter}

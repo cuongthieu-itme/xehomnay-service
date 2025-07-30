@@ -17,7 +17,7 @@ export default function CountryList({ countries }: any) {
       toast.error(res.error);
     } else {
       refresh();
-      toast.success(res.message || "Country status updated successfully");
+      toast.success(res.message || "Cập nhật trạng thái quốc gia thành công");
     }
   };
 
@@ -27,7 +27,7 @@ export default function CountryList({ countries }: any) {
       toast.error(res.error);
     } else {
       refresh();
-      toast.success(res.message || "Country deleted successfully");
+      toast.success(res.message || "Xóa quốc gia thành công");
     }
   };
 

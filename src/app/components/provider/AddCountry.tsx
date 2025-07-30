@@ -20,7 +20,7 @@ export default function AddCountry({ user, providerDetails }: any) {
       setLoading(false);
       refresh();
     } else {
-      toast.error(res?.error || "Something went wrong");
+      toast.error(res?.error || "Đã xảy ra lỗi");
       setLoading(false);
     }
   };

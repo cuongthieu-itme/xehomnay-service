@@ -52,7 +52,7 @@ export default function BookingDetails({ carDetails, user }: any) {
   const handleBookNow = async () => {
     setTriggered(true);
     if (!picupDate || !returnDate || !time) {
-      toast.error("Please select pickup date, return date and time");
+      toast.error("Vui lòng chọn ngày bắt đầu, ngày kết thúc và thời gian");
       setTriggered(false);
       return;
     }
@@ -62,7 +62,7 @@ export default function BookingDetails({ carDetails, user }: any) {
       !user?.userProfile?.city ||
       !user?.userProfile?.region.name
     ) {
-      setProfileError("Please Complete your profile to book");
+      setProfileError("Vui lòng hoàn thiện hồ sơ để đặt xe");
       setTriggered(false);
       return;
     }
@@ -116,7 +116,7 @@ export default function BookingDetails({ carDetails, user }: any) {
       refresh();
       return;
     } else {
-      toast.error(res?.error || "Review Creation Failed");
+      toast.error(res?.error || "Tạo đánh giá thất bại");
       setReviewLoading(false);
       return;
     }
@@ -140,7 +140,7 @@ export default function BookingDetails({ carDetails, user }: any) {
             <SelectTime
               value={time}
               onChange={(e) => setTime(e)}
-              label="Time"
+              label="Thời gian"
             />
           </Box>
         </Box>
@@ -186,7 +186,7 @@ export default function BookingDetails({ carDetails, user }: any) {
           <Notification
             icon={<IconX size="0.6rem" />}
             c="red"
-            title="Required!"
+            title="Bắt buộc!"
           >
             {profileError}
           </Notification>

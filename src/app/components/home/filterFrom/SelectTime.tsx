@@ -35,7 +35,7 @@ export default function SelectTime({ value, onChange, label }: Props) {
       setLocalValue(newValue); // Update the local state
       onChange?.(newValue); // Trigger the parent's onChange handler
     } else {
-      toast.error("Please select the current time or a future time.");
+      toast.error("Vui lòng chọn thời gian hiện tại hoặc thời gian trong tương lai.");
       setLocalValue(""); // Reset the local state to clear the input
     }
   };

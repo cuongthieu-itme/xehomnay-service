@@ -92,7 +92,7 @@ export default function ProviderCompanyDetails({
               type="text"
               id="companyName"
               required
-              placeholder="Company Name"
+              placeholder="Tên công ty"
               value={companyDetails.companyName}
               onChange={(e) =>
                 updateDetails("companyName", e.currentTarget.value)
@@ -111,7 +111,7 @@ export default function ProviderCompanyDetails({
               type="text"
               id="businessReg"
               required
-              placeholder="Business Registration Number"
+              placeholder="Mã số doanh nghiệp"
               value={companyDetails.businessReg}
               onChange={(e) =>
                 updateDetails("businessReg", e.currentTarget.value)
@@ -132,7 +132,7 @@ export default function ProviderCompanyDetails({
               type="text"
               id="contactName"
               required
-              placeholder="Contact Name"
+              placeholder="Tên người liên hệ"
               value={companyDetails.contactName}
               onChange={(e) =>
                 updateDetails("contactName", e.currentTarget.value)

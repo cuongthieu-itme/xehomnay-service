@@ -43,7 +43,7 @@ export const SelectFuelType = ({
       onChange={onChange}
       searchable
       maxDropdownHeight={280}
-      nothingFoundMessage="Nothing found"
+      nothingFoundMessage="Không tìm thấy kết quả"
       filter={optionsFilter}
     />
   );

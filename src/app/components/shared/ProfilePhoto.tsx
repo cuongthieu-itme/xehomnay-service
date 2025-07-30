@@ -16,7 +16,7 @@ export default function ProfilePhoto({ updateProfile, profileUrl }: Props) {
     const info: any = result.info;
     await updateProfile(info.secure_url);
     widget.close();
-    toast.success("Profile photo updated successfully");
+    toast.success("Cập nhật ảnh đại diện thành công");
   };
   return (
     <Flex direction="column" gap="sm" justify="flex-start" align="center">

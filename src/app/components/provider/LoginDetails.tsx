@@ -55,11 +55,11 @@ export default function LoginDetails({
     setPasswordError(undefined);
     setIsCreate(true);
     if (!password) {
-      setPasswordError("Password is required");
+      setPasswordError("Mật khẩu là bắt buộc");
       return;
     }
     if (password !== confirmPassword) {
-      setPasswordError("Passwords do not match");
+      setPasswordError("Mật khẩu không khớp");
       return;
     }
 
@@ -82,7 +82,7 @@ export default function LoginDetails({
         setIsSubmitting(false);
       } else {
         setSuccess(res.message ?? null);
-        toast.success(res?.message ?? "Account created successfully");
+        toast.success(res?.message ?? "Tạo tài khoản thành công");
         // router.push("/login");
       }
       setIsSubmitting(false);

@@ -50,7 +50,7 @@ export default function ReviewCard({ review, user }: Props) {
         // Revert the state in case of an error
         setData(data);
       } else {
-        toast.success("Review updated successfully");
+        toast.success("Cập nhật đánh giá thành công");
         refresh();
       }
     } catch (error) {
