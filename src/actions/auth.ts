@@ -83,8 +83,7 @@ export const signUpWithCredentials = async (
     // revalidatePath("/provider");
     return {
       status: "success",
-      message:
-        "Provider created successfully! Please check your email for verify",
+      message: "Tạo tài khoản thành công! Vui lòng kiểm tra email của bạn",
     };
   } catch (error: any) {
     return { error: error.message };
@@ -144,7 +143,7 @@ export const signUpUserWithCredentials = async (
 
     return {
       status: "success",
-      message: "User created successfully! Please check your email for verify.",
+      message: "Tạo tài khoản thành công! Vui lòng kiểm tra email của bạn",
     };
   } catch (error: any) {
     console.error("Error in signUpUserWithCredentials:", error);

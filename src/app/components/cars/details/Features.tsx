@@ -13,6 +13,16 @@ import { IconCheck, IconManualGearbox, IconUsers } from "@tabler/icons-react";
 import { GiCarDoor } from "react-icons/gi";
 import classes from "./styles.module.css";
 
+export const convertTransmission = (transmission: string) => {
+  if (transmission === "manual") {
+    return "Số sàn";
+  } else if (transmission === "automatic") {
+    return "Số tự động";
+  } else {
+    return "Không";
+  }
+};
+
 export const Features = ({
   seatsCapacity,
   transmission,
@@ -25,13 +35,13 @@ export const Features = ({
   return (
     <>
       <Title order={5} my="xs">
-        Features
+        Tính năng
       </Title>
       <Grid>
         <Grid.Col span={{ base: 12, xs: 6, sm: 3 }}>
           <Card className={classes.mainFeatures} withBorder>
             <IconUsers />
-            <Text size="xs">Seating Capacity</Text>
+            <Text size="xs">Số chỗ ngồi</Text>
             <Text fw="bold" size="">
               {seatsCapacity}
             </Text>
@@ -41,15 +51,15 @@ export const Features = ({
         <Grid.Col span={{ base: 12, xs: 6, sm: 3 }}>
           <Card className={classes.mainFeatures} withBorder>
             <IconManualGearbox />
-            <Text size="xs">Transmission</Text>
-            <Text fw="bold">{transmission}</Text>
+            <Text size="xs">Hộp số</Text>
+            <Text fw="bold">{convertTransmission(transmission)}</Text>
           </Card>
         </Grid.Col>
 
         <Grid.Col span={{ base: 12, xs: 6, sm: 3 }}>
           <Card className={classes.mainFeatures} withBorder>
             <IconUsers />
-            <Text size="xs">Fuel Type/EV</Text>
+            <Text size="xs">Nhiên liệu/EV</Text>
             <Text fw="bold">{fuelType}</Text>
           </Card>
         </Grid.Col>
@@ -57,7 +67,7 @@ export const Features = ({
         <Grid.Col span={{ base: 12, xs: 6, sm: 3 }}>
           <Card className={classes.mainFeatures} withBorder>
             <IconUsers />
-            <Text size="xs">Engine Capacity</Text>
+            <Text size="xs">Dung tích động cơ</Text>
             <Text fw="bold">{engineCapaciy}</Text>
           </Card>
         </Grid.Col>
@@ -88,17 +98,17 @@ export const Features = ({
           <Card withBorder>
             <Flex gap="md" align="center" my="md">
               <GiCarDoor />
-              <Text>4 Doors</Text>
+              <Text>4 cửa</Text>
             </Flex>
             <Divider mb="md" />
             <Flex gap="md" justify="space-between" align="center" my="md">
-              <Text>AC AVAILABLE</Text>
-              <Text>{acAvailable ? "Yes" : "No"}</Text>
+              <Text>CÓ MÁY LẠNH</Text>
+              <Text>{acAvailable ? "Có" : "Không"}</Text>
             </Flex>
 
             <Flex gap="md" justify="space-between" align="center" my="md">
-              <Text>AC WORKING</Text>
-              <Text>{acWorking ? "Yes" : "No"}</Text>
+              <Text>MÁY LẠNH HOẠT ĐỘNG</Text>
+              <Text>{acWorking ? "Có" : "Không"}</Text>
             </Flex>
           </Card>
         </Grid.Col>
