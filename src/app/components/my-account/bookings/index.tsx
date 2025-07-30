@@ -23,13 +23,13 @@ interface BookingsProps {
 }
 const header = (
   <Table.Tr>
-    <Table.Th>Date Booked</Table.Th>
-    <Table.Th>Time</Table.Th>
-    <Table.Th>Car</Table.Th>
-    <Table.Th>Pickup Date</Table.Th>
-    <Table.Th>Return Date</Table.Th>
-    <Table.Th>Price</Table.Th>
-    <Table.Th>Status</Table.Th>
+    <Table.Th>Ngày thuê</Table.Th>
+    <Table.Th>Thời gian thuê</Table.Th>
+    <Table.Th>Xe</Table.Th>
+    <Table.Th>Ngày lấy xe</Table.Th>
+    <Table.Th>Ngày trả xe</Table.Th>
+    <Table.Th>Giá</Table.Th>
+    <Table.Th>Trạng thái</Table.Th>
   </Table.Tr>
 );
 export default function Bookings({ userId, bookings }: BookingsProps) {
@@ -58,7 +58,7 @@ export default function Bookings({ userId, bookings }: BookingsProps) {
         labelPosition="left"
         label={
           <Title order={1} className="text-default" mb="lg">
-            My Bookings ({bookings.length})
+            Danh sách đơn đặt xe ({bookings.length})
           </Title>
         }
       />
