@@ -18,7 +18,7 @@ const Profile = ({ user }: any) => {
   const router = useRouter();
   const handleLogout = async () => {
     await signOut({ redirect: false });
-    toast.success("Logout successful");
+    toast.success("Đăng xuất thành công");
     router.push("/");
     router.refresh();
   };

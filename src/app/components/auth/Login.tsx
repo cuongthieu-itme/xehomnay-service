@@ -37,7 +37,7 @@ export default function LoginApp() {
       toast.error(res?.error);
       return;
     } else {
-      toast.success("Login successful");
+      toast.success("Đăng nhập thành công");
     }
   };
 

@@ -73,7 +73,7 @@ export default function Bookings({ userId, bookings }: BookingsProps) {
   ) : (
     <Card my="3rem">
       <Text fs="italic" ta="center">
-        No Bookings Found
+        Không có đơn đặt xe
       </Text>
     </Card>
   );

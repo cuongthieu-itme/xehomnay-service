@@ -70,7 +70,7 @@ export default function CountryList({ countries }: any) {
   return (
     <>
       <h1 className="text-center font-semibold text-xl py-2">
-        All Country List - ( {countries.length} )
+        Danh sách quốc gia - ( {countries.length} )
       </h1>
 
       <Table.ScrollContainer minWidth={500} type="native">
@@ -83,11 +83,11 @@ export default function CountryList({ countries }: any) {
         >
           <Table.Thead>
             <Table.Tr>
-              <Table.Th>S.N</Table.Th>
-              <Table.Th>Name</Table.Th>
-              <Table.Th>Code</Table.Th>
-              <Table.Th>CreatedAt</Table.Th>
-              <Table.Th>Action</Table.Th>
+              <Table.Th>STT</Table.Th>
+              <Table.Th>Tên</Table.Th>
+              <Table.Th>Mã</Table.Th>
+              <Table.Th>Ngày tạo</Table.Th>
+              <Table.Th>Thao tác</Table.Th>
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>{rows}</Table.Tbody>

@@ -74,11 +74,11 @@ export default function ProfileComponent({ userSession, userDetails }: Props) {
 
         <div>
           <Title c="gray.6" mb="4rem" size="1rem">
-            Profile Details ({userDetails?.email})
+            Thông tin tài khoản ({userDetails?.email})
           </Title>
           <form onSubmit={form.onSubmit(() => handleUpdateProfile())}>
             <Box my="sm">
-              <Input.Label>Email Address</Input.Label>
+              <Input.Label>Email</Input.Label>
               <Input
                 type="text"
                 defaultValue={userDetails?.email}
@@ -88,8 +88,8 @@ export default function ProfileComponent({ userSession, userDetails }: Props) {
             </Box>
             <Group grow>
               <TextInput
-                label="First Name"
-                placeholder="Your firstname"
+                label="Tên"
+                placeholder="Tên"
                 value={form.values.firstName}
                 onChange={(event) =>
                   form.setFieldValue("firstName", event.currentTarget.value)
@@ -98,8 +98,8 @@ export default function ProfileComponent({ userSession, userDetails }: Props) {
               />
 
               <TextInput
-                label="Last Name"
-                placeholder="Your lastname"
+                label="Họ"
+                placeholder="Họ"
                 value={form.values.lastName}
                 onChange={(event) =>
                   form.setFieldValue("lastName", event.currentTarget.value)
@@ -117,7 +117,7 @@ export default function ProfileComponent({ userSession, userDetails }: Props) {
                     return new Date(input);
                   }}
                   valueFormat="DD/MM/YYYY"
-                  label="Date of Birth"
+                  label="Ngày sinh"
                   placeholder="DD/MM/YYYY"
                   value={
                     form.values.dob ? new Date(form.values.dob) : undefined
@@ -128,10 +128,10 @@ export default function ProfileComponent({ userSession, userDetails }: Props) {
                 />
               </Box>
               <Box my="sm">
-                <Input.Label>Phone Number</Input.Label>
+                <Input.Label>Số điện thoại</Input.Label>
                 <Input
                   type="text"
-                  placeholder="Your phone number"
+                  placeholder="Số điện thoại"
                   value={form.values.phone}
                   onChange={(event) =>
                     form.setFieldValue("phone", event.currentTarget.value)
@@ -141,12 +141,12 @@ export default function ProfileComponent({ userSession, userDetails }: Props) {
               </Box>
             </Group>
             <Box my="sm">
-              <Input.Label mr={16}>Gender</Input.Label>
+              <Input.Label mr={16}>Giới tính</Input.Label>
               <SegmentedControl
                 data={[
-                  { label: "Male", value: "male" },
-                  { label: "Female", value: "female" },
-                  { label: "Other", value: "other" },
+                  { label: "Nam", value: "male" },
+                  { label: "Nữ", value: "female" },
+                  { label: "Khác", value: "other" },
                 ]}
                 value={form.values.gender}
                 onChange={(value) => form.setFieldValue("gender", value)}
@@ -154,7 +154,7 @@ export default function ProfileComponent({ userSession, userDetails }: Props) {
             </Box>
             <Box my="lg">
               <Title order={4} className="text-muted">
-                Address
+                Địa chỉ
               </Title>
 
               <Group grow>
@@ -182,8 +182,8 @@ export default function ProfileComponent({ userSession, userDetails }: Props) {
 
               <Group grow>
                 <TextInput
-                  label="City"
-                  placeholder="Achimota"
+                  label="Thành phố"
+                  placeholder="Thành phố"
                   value={form.values.city}
                   onChange={(event) =>
                     form.setFieldValue("city", event.currentTarget.value)
@@ -192,8 +192,8 @@ export default function ProfileComponent({ userSession, userDetails }: Props) {
                 />
 
                 <TextInput
-                  label="Street Address"
-                  placeholder="House number, street name"
+                  label="Địa chỉ"
+                  placeholder="Địa chỉ"
                   value={form.values.state}
                   onChange={(event) =>
                     form.setFieldValue("state", event.currentTarget.value)
@@ -206,7 +206,7 @@ export default function ProfileComponent({ userSession, userDetails }: Props) {
               overlayProps={{ radius: "sm", blur: 2 }}
             />
             <Button type="submit" radius="sm" disabled={isUpdating}>
-              {isUpdating ? "Updating..." : "Update Profile"}
+              {isUpdating ? "Đang cập nhật..." : "Cập nhật"}
             </Button>
           </form>
         </div>

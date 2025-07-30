@@ -1,6 +1,7 @@
 import { today, tomorrow } from "@/const";
 import { useAppContext } from "@/context/AppContext";
 import { Box, Flex } from "@mantine/core";
+import "dayjs/locale/vi";
 import { DateInput, DateValue } from "@mantine/dates";
 
 interface Props {
@@ -52,6 +53,8 @@ export default function DatePicker() {
 function PickupDate({ value, onChange, placeholder, minDate }: Props) {
   return (
     <DateInput
+      locale="vi"
+      valueFormat="DD/MM/YYYY"
       value={value}
       onChange={onChange}
       placeholder={placeholder}
@@ -64,6 +67,8 @@ function PickupDate({ value, onChange, placeholder, minDate }: Props) {
 function ReturnDate({ value, onChange, placeholder, minDate }: Props) {
   return (
     <DateInput
+      locale="vi"
+      valueFormat="DD/MM/YYYY"
       value={value}
       onChange={onChange}
       placeholder={placeholder}

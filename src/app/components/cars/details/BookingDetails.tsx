@@ -87,7 +87,7 @@ export default function BookingDetails({ carDetails, user }: any) {
       toast.error(res.error);
       return;
     }
-    toast.success("Booking Created Successfully");
+    toast.success("Thuê xe thành công");
     setTriggered(false);
     refresh();
   };
@@ -288,7 +288,7 @@ export default function BookingDetails({ carDetails, user }: any) {
         disabled={carDetails.status !== "available"}
         onClick={handleBookNow}
       >
-        {triggered ? <Loader size={22} /> : "Book Now"}
+        {triggered ? <Loader size={22} /> : "Thuê xe ngay"}
       </Button>
 
       {/* review form  */}
@@ -335,7 +335,7 @@ export default function BookingDetails({ carDetails, user }: any) {
               // disabled={carDetails.status !== "available"}
               gradient={primaryGradient}
             >
-              {reviewLoading ? <Loader size={22} /> : "Submit Review"}
+              {reviewLoading ? <Loader size={22} /> : "Đánh giá"}
             </Button>
           </form>
         </>

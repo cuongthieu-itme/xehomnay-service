@@ -9,7 +9,7 @@ export const Reviews = ({ reviews, user }: Props) => {
   return (
     <Card my="md">
       {reviews.length === 0 ? (
-        <i>No Reviews available for this car</i>
+        <i>Không có đánh giá cho xe này</i>
       ) : (
         reviews.map((review) => (
           <ReviewCard key={review.id} review={review} user={user} />

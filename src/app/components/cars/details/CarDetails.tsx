@@ -37,7 +37,7 @@ export default function CarDetails({ carDetails, user }: any) {
 
           <Box my="lg">
             <Title order={5} my="xs">
-              Vehicle Description
+              Mô tả
             </Title>
 
             <Text size="md" color="gray.6">
@@ -65,7 +65,7 @@ export default function CarDetails({ carDetails, user }: any) {
           my="xl"
           label={
             <Title order={3} className="text-muted">
-              Car Reviews
+              Đánh giá
             </Title>
           }
         />

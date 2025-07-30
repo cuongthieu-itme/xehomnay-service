@@ -67,7 +67,7 @@ export default function RegionList({ regions }: any) {
   return (
     <>
       <h1 className="text-center font-semibold text-xl py-2">
-        All Region List - ( {regions.length} )
+        Danh sách khu vực - ( {regions.length} )
       </h1>
 
       <Table.ScrollContainer minWidth={500} type="native">
