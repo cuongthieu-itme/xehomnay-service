@@ -1,7 +1,8 @@
 "use client";
 
-import { ghCurrency } from "@/const";
-import { formatDate, formatTime } from "@/lib/utils";
+import { convertDate } from "@/lib/date";
+import { convertPrice } from "@/lib/price";
+import { formatTime } from "@/lib/utils";
 import {
   Avatar,
   Box,
@@ -103,7 +104,7 @@ export const TableRow = ({
 }: TableRowProps) => {
   return (
     <Table.Tr>
-      <Table.Td>{formatDate(dateBooked)}</Table.Td>
+      <Table.Td>{convertDate(dateBooked)}</Table.Td>
       <Table.Td>{formatTime(time)}</Table.Td>
       <Table.Td>
         <Flex align="center" gap={4}>
@@ -114,10 +115,10 @@ export const TableRow = ({
           </Text>
         </Flex>
       </Table.Td>
-      <Table.Td>{formatDate(pickupDate)}</Table.Td>
-      <Table.Td>{formatDate(returnDate)}</Table.Td>
+      <Table.Td>{convertDate(pickupDate)}</Table.Td>
+      <Table.Td>{convertDate(returnDate)}</Table.Td>
       <Table.Td>
-        {ghCurrency} {price} ({hOrday})
+       {convertPrice(price)} ({hOrday})
       </Table.Td>
       <Table.Td width="100px">
         <StatusRenderer status={status} />
