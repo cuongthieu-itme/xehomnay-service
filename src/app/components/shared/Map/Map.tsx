@@ -21,14 +21,14 @@ const MapBox = ({ height }: Props) => {
     if (selectedRegion) {
       return [selectedRegion.latitude || 0, selectedRegion.longitude || 0];
     }
-    return [23.777176, 90.399452];
+    return [14.058324, 108.277199];
   };
   return (
     <Container className={styles.container} mb="1rem" size="100%">
       <MapContainer
         className={styles.mapContainer}
         center={getCordinates()}
-        zoom={14}
+        zoom={6}
         style={{ height: height || "300px" }}
       >
         <TileLayer
@@ -43,7 +43,7 @@ const MapBox = ({ height }: Props) => {
               ? selectedRegion.name || ""
               : selectedCountry
               ? selectedCountry.name || ""
-              : "Bangladesh"
+              : "Vietnam"
           }
         />
       </MapContainer>
