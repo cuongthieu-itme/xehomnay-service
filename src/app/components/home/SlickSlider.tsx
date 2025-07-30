@@ -4,10 +4,9 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 
-import { ghCurrencySymbol } from "@/const";
+import { convertPrice } from "@/lib/price";
 import Link from "next/link";
 import "slick-carousel/slick/slick-theme.css";
-import { convertPrice } from "@/lib/price";
 const SlickSlider = ({ cars }: any) => {
   let settings = {
     dots: true,
@@ -50,6 +49,18 @@ const SlickSlider = ({ cars }: any) => {
       },
     ],
   };
+
+  const convertTransmission = (transmission: string) => {
+    switch (transmission) {
+      case "manual":
+        return "Số sàn";
+      case "automatic":
+        return "Số tự động";
+      default:
+        return "Không xác định";
+    }
+  };
+
   return (
     <div className="slider-container">
       <Slider {...settings}>
@@ -71,7 +82,7 @@ const SlickSlider = ({ cars }: any) => {
               <div className="pl-5 pr-5">
                 <div className="text-xl text-black pt-4">{car?.name}</div>
                 <div className="text-xs red_color pb-2 capitalize">
-                  {car?.transmission}
+                  {convertTransmission(car?.transmission)}
                 </div>
                 <div className="flex justify-between text-black text-sm pt-2">
                   <div>Kiểu dáng</div>
