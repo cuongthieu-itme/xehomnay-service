@@ -18,6 +18,9 @@ const Breadcrumb = ({ label }: { label: string }) => {
     if (name === "other-services") {
       return "Dịch vụ khác";
     }
+    if (name === "about") {
+      return "Về chúng tôi";
+    }
     return name;
   };
 
