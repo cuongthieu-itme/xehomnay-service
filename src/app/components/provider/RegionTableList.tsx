@@ -1,5 +1,6 @@
 "use client";
 import { Table } from "@mantine/core";
+import { StatusRenderer } from "../StatusRenderer";
 
 function RegionTableList({ regions }: any) {
   const rows = regions?.map((element: any, i: number) => (
@@ -7,7 +8,9 @@ function RegionTableList({ regions }: any) {
       <Table.Td>{i + 1}</Table.Td>
       <Table.Td>{element.name}</Table.Td>
       <Table.Td>{element?.country?.name}</Table.Td>
-      <Table.Td>{element.status}</Table.Td>
+      <Table.Td>
+        <StatusRenderer status={element.status} variant="light" />
+      </Table.Td>
     </Table.Tr>
   ));
 

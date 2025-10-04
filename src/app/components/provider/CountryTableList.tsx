@@ -1,12 +1,15 @@
 "use client";
 import { Table } from "@mantine/core";
+import { StatusRenderer } from "../StatusRenderer";
 
 function CountryTableList({ countries }: any) {
   const rows = countries?.map((element: any, i: number) => (
     <Table.Tr key={i}>
       <Table.Td>{i + 1}</Table.Td>
       <Table.Td>{element.name}</Table.Td>
-      <Table.Td>{element.status}</Table.Td>
+      <Table.Td>
+        <StatusRenderer status={element.status} variant="light" />
+      </Table.Td>
     </Table.Tr>
   ));
 
