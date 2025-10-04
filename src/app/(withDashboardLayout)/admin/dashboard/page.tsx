@@ -1,18 +1,18 @@
 import { getAdminDetails } from "@/actions/admin";
+import { adminStatics } from "@/actions/statics";
 import { authOptions } from "@/app/auth";
 import AdminDashboard from "@/app/components/admin/AdminDashboard";
+import AdminStats from "@/app/components/admin/Stats";
+import {
+    IconAlertCircle,
+    IconCar,
+    IconMessage2,
+    IconUsers,
+} from "@tabler/icons-react";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import {
-  IconAlertCircle,
-  IconCar,
-  IconMessage2,
-  IconUsers,
-} from "@tabler/icons-react";
-import AdminStats from "@/app/components/admin/Stats";
-import { adminStatics } from "@/actions/statics";
 
-export default async function page() {
+export default async function Page() {
   const getSession = await getServerSession(authOptions);
   const user = getSession?.user as {
     id: string;

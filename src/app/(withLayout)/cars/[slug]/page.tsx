@@ -10,7 +10,7 @@ interface CarDetailsPageProps {
   searchParams: any;
 }
 
-export default async function page({ params }: CarDetailsPageProps) {
+export default async function Page({ params }: CarDetailsPageProps) {
   const session = await getServerSession(authOptions);
   if (!session) {
     return redirect("/login");

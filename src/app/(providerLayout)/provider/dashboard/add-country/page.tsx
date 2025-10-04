@@ -11,7 +11,7 @@ import { Divider, Text } from "@mantine/core";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
-export default async function page() {
+export default async function Page() {
   const getSession = await getServerSession(authOptions);
 
   const user = getSession?.user as {

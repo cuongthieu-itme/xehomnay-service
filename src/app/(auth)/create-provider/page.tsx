@@ -3,7 +3,7 @@ import ProvidersAccountCreation from "@/app/components/provider/ProvidersAccount
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
-export default async function page() {
+export default async function Page() {
   const getSession = await getServerSession(authOptions);
   if (getSession) {
     return redirect("/");
