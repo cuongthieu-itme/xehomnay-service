@@ -19,13 +19,13 @@ export default async function ProviderCars() {
   };
   if (!getSession || user?.role !== "provider") return redirect("/login");
   const providerDetails = await getProviderDetails(user?.id);
-  const cars = await getProviderCars(providerDetails?.Provider[0].id);
+  const cars = await getProviderCars(providerDetails?.Provider?.[0]?.id);
   return (
     <DashboardLayout user={user} providerDetails={providerDetails}>
-      {providerDetails && (
+      {providerDetails?.Provider?.[0] && (
         <>
-          <Cars cars={cars} providerDetails={providerDetails?.Provider[0]} />
-          <Bookings providerId={providerDetails?.Provider[0]?.id} />
+          <Cars cars={cars} providerDetails={providerDetails.Provider[0]} />
+          <Bookings providerId={providerDetails.Provider[0].id} />
         </>
       )}
     </DashboardLayout>

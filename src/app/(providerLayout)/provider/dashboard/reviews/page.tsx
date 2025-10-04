@@ -16,7 +16,7 @@ export default async function ProviderReviews() {
   };
   if (!getSession || user?.role !== "provider") return redirect("/login");
   const providerDetails = await getProviderDetails(user?.id);
-  const reviews = await providerGetReviews(providerDetails?.Provider[0]?.id);
+  const reviews = await providerGetReviews(providerDetails?.Provider?.[0]?.id);
   return (
     <DashboardLayout user={user} providerDetails={providerDetails}>
       <Reviews reviews={reviews} user={user} />

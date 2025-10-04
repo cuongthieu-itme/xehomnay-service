@@ -24,10 +24,9 @@ export default async function page() {
   };
   if (!getSession || user?.role !== "provider") return redirect("/login");
   const providerDetails = await getProviderDetails(user?.id);
-  // console.log(providerDetails?.Provider[0]?.id);
   const { totalBooking, totalCar, totalReview, totalUser } =
-    await prodiverStatics(providerDetails?.Provider[0]?.id);
-  const carType = await carTypeStatics(providerDetails?.Provider[0]?.id);
+    await prodiverStatics(providerDetails?.Provider?.[0]?.id);
+  const carType = await carTypeStatics(providerDetails?.Provider?.[0]?.id);
   const data = [
     {
       title: "Đơn đặt xe",
