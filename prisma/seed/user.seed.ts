@@ -1,25 +1,10 @@
 import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcrypt";
 
 export async function seedUsers(prisma: PrismaClient) {
-  console.log("🌱 Seeding users & provider...");
+  console.log("🌱 Seeding users & providers...");
   try {
-    const admin = await prisma.user.upsert({
-      where: { email: "admin@xehomnay.com" },
-      update: {},
-      create: {
-        id: "admin-user-001",
-        name: "Admin User",
-        email: "admin@xehomnay.com",
-        password:
-          "$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj4J/8KqKqKq", // password: admin123
-        role: "admin",
-        status: "active",
-        emailVerified: new Date(),
-        image:
-          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-      },
-    });
-
+    // Verify that countries and regions exist
     const country = await prisma.country.findUnique({
       where: { id: "country-vn-001" },
     });
@@ -32,22 +17,62 @@ export async function seedUsers(prisma: PrismaClient) {
     const region = await prisma.region.findUnique({
       where: { id: "region-hn-001" },
     });
+
     if (!region) {
       throw new Error(
         "Missing required Region: region-hn-001. Run seedRegions() after seedCountries()."
       );
     }
 
+    // Hash password: "password123"
+    const hashedPassword = await bcrypt.hash("password123", 12);
+
+    // 1. Create Admin User
+    await prisma.user.upsert({
+      where: { email: "admin@xehomnay.com" },
+      update: {},
+      create: {
+        id: "admin-user-001",
+        name: "Admin Xe Hôm Nay",
+        email: "admin@xehomnay.com",
+        password: hashedPassword,
+        role: "admin",
+        status: "active",
+        emailVerified: new Date(),
+        image:
+          "https://ui-avatars.com/api/?name=Admin&size=200&background=3b82f6&color=fff",
+      },
+    });
+
+    console.log("✅ Admin created successfully");
+
+    // 2. Create Provider User & Provider Profile
+    const provider = await prisma.user.upsert({
+      where: { email: "provider@xehomnay.com" },
+      update: {},
+      create: {
+        id: "provider-user-001",
+        name: "Công ty TNHH Xe Hà Nội",
+        email: "provider@xehomnay.com",
+        password: hashedPassword,
+        role: "provider",
+        status: "active",
+        emailVerified: new Date(),
+        image:
+          "https://ui-avatars.com/api/?name=Xe+Ha+Noi&size=200&background=10b981&color=fff",
+      },
+    });
+
     await prisma.provider.upsert({
       where: { id: "provider-001" },
       update: {},
       create: {
         id: "provider-001",
-        companyName: "Xe Hôm Nay Co., Ltd",
-        businessReg: "BR-001-2025",
-        contactName: "Nguyễn Văn A",
+        companyName: "Công ty TNHH Xe Hà Nội",
+        businessReg: "0108123456",
+        contactName: "Nguyễn Văn An",
         contactPhone: "+84 912 345 678",
-        email: "provider@xehomnay.com",
+        email: provider.email,
         countryId: country.id,
         regionId: region.id,
         city: "Hà Nội",
@@ -55,14 +80,18 @@ export async function seedUsers(prisma: PrismaClient) {
         longitude: 105.8342,
         latitude: 21.0278,
         avatar:
-          "https://images.unsplash.com/photo-1544006659-f0b21884ce1d?w=300",
-        userId: admin.id,
+          "https://ui-avatars.com/api/?name=Xe+Ha+Noi&size=300&background=10b981&color=fff",
+        active: true,
+        userId: provider.id,
       },
     });
 
-    console.log("✅ Users & provider seeded successfully");
+    console.log("✅ Provider created successfully");
+    console.log("\n📝 Login credentials:");
+    console.log("   Admin:    admin@xehomnay.com / password123");
+    console.log("   Provider: provider@xehomnay.com / password123");
   } catch (error) {
-    console.error("❌ Seeding failed:", error);
+    console.error("❌ Seeding users failed:", error);
     throw error;
   }
 }

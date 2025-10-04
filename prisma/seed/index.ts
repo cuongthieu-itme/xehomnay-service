@@ -1,30 +1,30 @@
-import { PrismaClient } from '@prisma/client';
-import { seedUsers } from './user.seed';
-import { seedCountries } from './country.seed';
-import { seedRegions } from './region.seed';
+import { PrismaClient } from "@prisma/client";
+import { seedCountries } from "./country.seed";
+import { seedRegions } from "./region.seed";
+import { seedUsers } from "./user.seed";
 
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('🚀 Starting database seeding...');
+  console.log("🚀 Starting database seeding...\n");
 
   try {
     await seedCountries(prisma);
-    await seedRegions(prisma);
-    await seedUsers(prisma);
+    console.log("");
 
-    console.log('🎉 All seeders completed successfully!');
+    await seedRegions(prisma);
+    console.log("");
+
+    await seedUsers(prisma);
+    console.log("");
+
+    console.log("✨ Database seeding completed successfully!");
   } catch (error) {
-    console.error('❌ Error during seeding:', error);
-    throw error;
+    console.error("💥 Seeding failed:", error);
+    process.exit(1);
+  } finally {
+    await prisma.$disconnect();
   }
 }
 
-main()
-  .catch((e) => {
-    console.error('❌ Seeding failed:', e);
-    process.exit(1);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
+main();
