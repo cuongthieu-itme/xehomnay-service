@@ -4,7 +4,6 @@ import bcrypt from "bcrypt";
 export async function seedUsers(prisma: PrismaClient) {
   console.log("🌱 Seeding users & providers...");
   try {
-    // Verify that countries and regions exist
     const country = await prisma.country.findUnique({
       where: { id: "country-vn-001" },
     });
@@ -27,7 +26,6 @@ export async function seedUsers(prisma: PrismaClient) {
     // Hash password: "password123"
     const hashedPassword = await bcrypt.hash("password123", 12);
 
-    // 1. Create Admin User
     await prisma.user.upsert({
       where: { email: "admin@xehomnay.com" },
       update: {},
@@ -46,13 +44,12 @@ export async function seedUsers(prisma: PrismaClient) {
 
     console.log("✅ Admin created successfully");
 
-    // 2. Create Provider User & Provider Profile
     const provider = await prisma.user.upsert({
       where: { email: "provider@xehomnay.com" },
       update: {},
       create: {
         id: "provider-user-001",
-        name: "Công ty TNHH Xe Hà Nội",
+        name: "Công ty TNHH đầu tư thương mại và du lịch TODAY TRAVEL",
         email: "provider@xehomnay.com",
         password: hashedPassword,
         role: "provider",
@@ -68,15 +65,15 @@ export async function seedUsers(prisma: PrismaClient) {
       update: {},
       create: {
         id: "provider-001",
-        companyName: "Công ty TNHH Xe Hà Nội",
-        businessReg: "0108123456",
-        contactName: "Nguyễn Văn An",
-        contactPhone: "+84 912 345 678",
+        companyName: "Công ty TNHH đầu tư thương mại và du lịch TODAY TRAVEL",
+        businessReg: "0852342525",
+        contactName: "Phạm Thế Anh",
+        contactPhone: "0852342525",
         email: provider.email,
         countryId: country.id,
         regionId: region.id,
         city: "Hà Nội",
-        street: "12 Lý Thái Tổ, Hoàn Kiếm",
+        street: "Số 10, ngõ 253 Nguyễn Khang, phường Yên Hòa, TP. Hà Nội",
         longitude: 105.8342,
         latitude: 21.0278,
         avatar:

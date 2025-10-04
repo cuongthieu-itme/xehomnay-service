@@ -46,20 +46,16 @@ export default function AddRegion({ countries }: any) {
             id="countryId"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             onChange={(e) => setCountryId(e.target.value)}
+            defaultValue=""
           >
-            <option value={""} disabled selected>
+            <option value="" disabled>
               Quốc gia
             </option>
-            {countries?.map((country: any, i: number) => {
-              return (
-                <>
-                  <option key={i} value={country?.id}>
-                    {country?.name}
-                  </option>
-                  ;
-                </>
-              );
-            })}
+            {countries?.map((country: any) => (
+              <option key={country?.id} value={country?.id}>
+                {country?.name}
+              </option>
+            ))}
           </select>
         </div>
         <div className="mb-4">
