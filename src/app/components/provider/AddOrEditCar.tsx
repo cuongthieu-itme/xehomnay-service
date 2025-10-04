@@ -197,10 +197,10 @@ export function AddOrEditCar({
             label="Hãng xe"
           />
           <Box>
-            <Input.Label required={!carDetails.model}>Model</Input.Label>
+            <Input.Label required={!carDetails.model}>Model xe</Input.Label>
             <Input
               type="text"
-              placeholder="Model"
+              placeholder="VD: Camry, Civic, CX-5"
               value={carDetails.model}
               onChange={(e) => updateProperty("model", e.target.value)}
             />
@@ -230,11 +230,11 @@ export function AddOrEditCar({
 
           <Box>
             <Input.Label required={!carDetails.engineCapaciy}>
-              Dung lượng động cơ
+              Dung tích động cơ
             </Input.Label>
             <Input
               type="text"
-              placeholder="2.5L"
+              placeholder="VD: 1.5L, 2.0L, 2.5L"
               value={carDetails.engineCapaciy}
               onChange={(e) => updateProperty("engineCapaciy", e.target.value)}
             />
@@ -257,7 +257,7 @@ export function AddOrEditCar({
           />
 
           <NumberInput
-            label="Số lượng hành lý"
+            label="Số túi hành lý"
             required={!carDetails.bagsCapacity}
             step={1}
             min={1}
@@ -266,10 +266,10 @@ export function AddOrEditCar({
           />
 
           <NumberInput
-            label="Số lượng cửa"
+            label="Số cửa"
             required={!carDetails.doorsCapacity}
             step={1}
-            min={1}
+            min={2}
             value={carDetails.doorsCapacity}
             onChange={(value) => updateProperty("doorsCapacity", value)}
           />
@@ -279,7 +279,7 @@ export function AddOrEditCar({
             <Input
               w="100%"
               type="text"
-              placeholder="E.g. Đen"
+              placeholder="VD: Đen, Trắng, Xám bạc"
               value={carDetails.color}
               onChange={(e) => updateProperty("color", e.target.value)}
             />
@@ -289,10 +289,10 @@ export function AddOrEditCar({
         <Group grow my="sm">
           <Box>
             <Input.Label>
-              Tính năng khác. Ngăn cách các tính năng bằng dấu {'"|"'}
+              Tính năng khác (Ngăn cách bằng dấu {'"|"'})
             </Input.Label>
             <Textarea
-              placeholder="E.g. Bluetooth | Backup Camera | Android Screen |  Keyless Entry"
+              placeholder="VD: Bluetooth | Camera lùi | Màn hình Android | Khởi động không chìa khóa"
               defaultValue={carDetails.otherFeatures
                 ?.map((f: any) => f.feature)
                 ?.join(" | ")}
@@ -323,16 +323,18 @@ export function AddOrEditCar({
 
         <Group grow pt="xl">
           <NumberInput
-            label="Giá mỗi giờ"
+            label="Giá thuê theo giờ (VNĐ)"
             required={!carDetails.pricePerHour}
             value={carDetails.pricePerHour}
             onChange={(value) => updateProperty("pricePerHour", value)}
+            thousandSeparator=","
           />
           <NumberInput
-            label="Giá mỗi ngày"
+            label="Giá thuê theo ngày (VNĐ)"
             required={!carDetails.pricePerDay}
             value={carDetails.pricePerDay}
             onChange={(value) => updateProperty("pricePerDay", value)}
+            thousandSeparator=","
           />
         </Group>
         <Space pt="xl" />
@@ -347,7 +349,8 @@ export function AddOrEditCar({
           />
 
           <NumberInput
-            label="Thời gian thuê tối đa (Giờ/Ngày)"
+            label="Thời gian thuê tối đa (Tùy chọn)"
+            placeholder="Không giới hạn nếu để trống"
             step={1}
             min={1}
             value={carDetails.maximumRent}
